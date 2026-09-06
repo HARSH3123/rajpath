@@ -18,17 +18,22 @@
       <i class="fa-solid fa-bars-staggered"></i>
     </button>
     <h1 id="headerTitle" class="text-xl font-bold tracking-wide">Home</h1>
-    <button onclick="alert('Notification: AI Gym slot confirmed for 6:00 PM today!')" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-amber-400 relative hover:bg-slate-700 transition">
-      <i class="fa-solid fa-bell"></i>
-      <span class="absolute top-2 right-2 w-2 h-2 bg-amber-400 rounded-full animate-ping"></span>
-    </button>
+    <div class="flex items-center gap-2">
+      <button onclick="openDigitalPass()" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-amber-400 hover:bg-slate-700 transition" title="Digital Gate Pass">
+        <i class="fa-solid fa-qrcode"></i>
+      </button>
+      <button onclick="toggleNotifications(true)" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-amber-400 relative hover:bg-slate-700 transition">
+        <i class="fa-solid fa-bell"></i>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-amber-400 rounded-full animate-ping"></span>
+      </button>
+    </div>
   </header>
 
   <div id="drawerOverlay" onclick="toggleDrawer(false)" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity"></div>
   <aside id="drawer" class="fixed top-0 left-0 bottom-0 w-4/5 max-w-xs bg-[#101a33] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-5 overflow-y-auto no-scrollbar flex flex-col justify-between">
     <div>
       <div class="flex justify-between items-start mb-6">
-        <div onclick="openModal('Member Profile', '<div class=\'space-y-3 text-sm\'><p><b>Member Name:</b> Ramesh Shah</p><p><b>Member ID:</b> E1079</p><p><b>Tier:</b> Senior Life Member</p><p><b>Registered Mobile:</b> +91 98765*****</p><p><b>Status:</b> Active / Dues Pending ₹194.01</p></div>')" class="flex items-center gap-3 cursor-pointer group">
+        <div onclick="openDigitalPass()" class="flex items-center gap-3 cursor-pointer group">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Profile" class="w-12 h-12 rounded-full object-cover border-2 border-amber-400/50 group-hover:border-amber-400 transition" />
           <div>
             <h3 class="font-bold text-base flex items-center gap-1 group-hover:text-amber-400 transition">Ramesh Shah <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></h3>
@@ -41,62 +46,49 @@
       </div>
 
       <nav class="space-y-4 text-sm font-medium text-slate-300">
+        <button onclick="openDigitalPass()" class="w-full text-left flex items-center gap-3 py-1 text-amber-400 font-semibold hover:text-amber-300"><i class="fa-solid fa-id-card w-4"></i> Digital Gate Pass (QR)</button>
+        <button onclick="openFoodMenu()" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-utensils text-amber-400 w-4"></i> Order Food & Dining</button>
+
         <div class="border-b border-slate-800/80 pb-3">
           <div onclick="toggleSubMenu('aboutSub')" class="flex justify-between items-center py-1 cursor-pointer hover:text-white">
             <span class="flex items-center gap-2"><i class="fa-solid fa-circle-info text-amber-400"></i> About Club</span>
             <i id="aboutSubChevron" class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
           </div>
           <div id="aboutSub" class="mt-2 pl-2 space-y-3 text-slate-400 text-xs hidden">
-            <button onclick="openModal('President Message', '<p class=\'text-sm leading-relaxed\'>Dear Esteemed Members,<br/><br/>Welcome to another vibrant season at Rajpath Club. We continue our commitment to expanding world-class sports amenities, dining options, and digital convenience.<br/><br/>Warm Regards,<br/><b>President, Rajpath Club</b></p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-message text-amber-400 w-4"></i> President Message</button>
-            <button onclick="openModal('AGM INFO 2026', '<p class=\'text-sm leading-relaxed\'><b>Annual General Meeting Notice (2026):</b><br/><br/>• Date: 28th September 2026<br/>• Time: 10:00 AM<br/>• Venue: Main Club Auditorium<br/>• Agenda: Financial Reports, Committee Election & Infrastructure Expansion.</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-users text-amber-400 w-4"></i> AGM INFO 2026</button>
-            <button onclick="openModal('CSR POLICY', '<p class=\'text-sm leading-relaxed\'>Our Corporate Social Responsibility initiative focuses on youth sports development, eco-friendly solar initiatives across the club, and local community health camps.</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-shield-halved text-amber-400 w-4"></i> CSR Policy</button>
-            <button onclick="openModal('Membership Info', '<p class=\'text-sm leading-relaxed\'><b>Active Status:</b> Life Member<br/><b>Dependent Cards:</b> 3 Registered<br/><b>Guest Allowance:</b> Up to 4 Guests per visit with entry fee payment.</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-address-card text-amber-400 w-4"></i> Membership</button>
-            <button onclick="openModal('Executive Management', '<p class=\'text-sm leading-relaxed\'><b>Board Members:</b><br/>• President: Dr. V. Patel<br/>• Vice President: S. Mehta<br/>• Hon. Secretary: R. Shah<br/>• Joint Secretary: A. Joshi</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-gear text-amber-400 w-4"></i> Management</button>
+            <button onclick="openModal('President Message', '<p class=\'text-sm leading-relaxed\'>Dear Members,<br/><br/>Welcome to Rajpath Club Portal. Enjoy our upgraded digital sports booking, online movie reservations, and dining delivery directly to your court!</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-message text-amber-400 w-4"></i> President Message</button>
+            <button onclick="openModal('AGM INFO 2026', '<p class=\'text-sm leading-relaxed\'><b>AGM 2026:</b> Sept 28, 2026 at 10:00 AM in the Auditorium.</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-users text-amber-400 w-4"></i> AGM INFO 2026</button>
+            <button onclick="openModal('CSR Policy', '<p class=\'text-sm leading-relaxed\'>Supporting sustainable solar power, local sports scholarships, and community wellness.</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-shield-halved text-amber-400 w-4"></i> CSR Policy</button>
           </div>
         </div>
 
-        <button onclick="openModal('Photo Gallery', '<div class=\'grid grid-cols-2 gap-2\'><img src=\'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=300\' class=\'rounded-lg\'/><img src=\'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=300\' class=\'rounded-lg\'/><img src=\'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=300\' class=\'rounded-lg\'/><img src=\'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=300\' class=\'rounded-lg\'/></div>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-image text-amber-400 w-4"></i> Photo Gallery</button>
-        <button onclick="openModal('Rajpath World', '<p class=\'text-sm leading-relaxed\'>Explore news, quarterly digital magazines, and upcoming international club partnerships directly on Rajpath World online.</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-globe text-amber-400 w-4"></i> Rajpath World</button>
-        <button onclick="openModal('Affiliated Reciprocal Clubs', '<p class=\'text-sm leading-relaxed\'>Rajpath members enjoy reciprocal privileges across 45+ premier clubs in Mumbai, Delhi, Bangalore, and London.<br/><br/><i>Request an introduction card via the desk.</i></p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-diagram-project text-amber-400 w-4"></i> Affiliated Clubs</button>
-        <button onclick="openModal('Forms & Downloads', '<div class=\'space-y-2 text-xs\'><div class=\'p-2 bg-slate-800 rounded flex justify-between items-center\'><span>Guest Entry Form PDF</span><i class=\'fa-solid fa-download text-amber-400\'></i></div><div class=\'p-2 bg-slate-800 rounded flex justify-between items-center\'><span>Sports Membership Application</span><i class=\'fa-solid fa-download text-amber-400\'></i></div></div>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-file-arrow-down text-amber-400 w-4"></i> Forms Downloads</button>
-        <button onclick="openModal('Guest Entry Charges', '<div class=\'space-y-2 text-sm\'><p><b>Weekdays:</b> ₹100 per guest</p><p><b>Weekends / Holidays:</b> ₹200 per guest</p><p><b>Swimming Pool Guest Fee:</b> ₹150 / session</p></div>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-indian-rupee-sign text-amber-400 w-4"></i> Guest Entry Charges</button>
-        <button onclick="openModal('Contact Us', '<p class=\'text-sm leading-relaxed\'><b>Front Desk Concierge:</b><br/>Phone: +91 79 2687 0000<br/>Email: support@rajpathclub.com<br/>Hours: 6:00 AM - 11:00 PM</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-headset text-amber-400 w-4"></i> Contact Us</button>
-
-        <div class="border-t border-slate-800/80 pt-2">
-          <div onclick="toggleSubMenu('historySub')" class="flex items-center justify-between py-1 cursor-pointer hover:text-white">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left text-amber-400"></i> Booking History</span>
-            <i id="historySubChevron" class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
-          </div>
-          <div id="historySub" class="mt-2 pl-2 space-y-2 text-slate-400 text-xs hidden">
-            <button onclick="openModal('Movie History', '<p class=\'text-sm\'>• Mirzapur - Sept 02 (2 Seats)<br/>• Stree 2 - Aug 20 (3 Seats)</p>')" class="w-full text-left py-1 hover:text-white">• Movies History</button>
-            <button onclick="openModal('Sports History', '<p class=\'text-sm\'>• Badminton Court #1 - Sept 05 (6 PM)<br/>• Box Cricket - Aug 28 (7 PM)</p>')" class="w-full text-left py-1 hover:text-white">• Sports Slots</button>
-          </div>
-        </div>
-
-        <button onclick="openModal('Activities List', '<p class=\'text-sm\'>1. Morning Yoga (6:30 AM)<br/>2. Youth Cricket Tournament<br/>3. Senior Citizens Card Room Meet</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-list-check text-amber-400 w-4"></i> Activities</button>
-        <button onclick="if(confirm('Are you sure you want to log out?')) { alert('Logged out successfully.'); window.location.reload(); }" class="w-full text-left flex items-center gap-3 py-1 text-red-400 hover:text-red-300"><i class="fa-solid fa-right-from-bracket w-4"></i> Logout</button>
+        <button onclick="openModal('Photo Gallery', '<div class=\'grid grid-cols-2 gap-2\'><img src=\'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=300\' class=\'rounded-lg\'/><img src=\'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=300\' class=\'rounded-lg\'/></div>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-image text-amber-400 w-4"></i> Photo Gallery</button>
+        <button onclick="openModal('Reciprocal Clubs', '<p class=\'text-sm\'>Privileges available across 45 partner clubs in India and UK.</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-diagram-project text-amber-400 w-4"></i> Affiliated Clubs</button>
+        <button onclick="openModal('Support', '<p class=\'text-sm\'>Desk: +91 79 2687 0000<br/>Email: support@rajpathclub.com</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-headset text-amber-400 w-4"></i> Support</button>
+        <button onclick="if(confirm('Log out of Rajpath Portal?')) window.location.reload();" class="w-full text-left flex items-center gap-3 py-1 text-red-400 hover:text-red-300"><i class="fa-solid fa-right-from-bracket w-4"></i> Logout</button>
       </nav>
     </div>
     <div class="text-xs text-slate-500 pt-6 border-t border-slate-800/80">
-      Version: 1.16 • Build 2026.09
+      Version: 2.0 • Build 2026.09
     </div>
   </aside>
 
-  <div id="infoModal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-[#131b30] border border-slate-700/80 rounded-2xl w-full max-w-sm p-5 space-y-4 shadow-2xl relative animate-fade-in">
-      <div class="flex justify-between items-center border-b border-slate-800 pb-3">
-        <h3 id="modalTitle" class="font-bold text-base text-amber-400">Modal Title</h3>
-        <button onclick="closeModal()" class="text-slate-400 hover:text-white text-lg px-2">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div id="modalBody" class="text-slate-200">
-        </div>
-      <button onclick="closeModal()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs py-2.5 rounded-xl transition">
-        Close
-      </button>
+  <div id="notifOverlay" onclick="toggleNotifications(false)" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></div>
+  <aside id="notifTray" class="fixed top-0 right-0 bottom-0 w-4/5 max-w-xs bg-[#101a33] z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-5 overflow-y-auto no-scrollbar space-y-4">
+    <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+      <h3 class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-bell text-amber-400"></i> Notifications</h3>
+      <button onclick="toggleNotifications(false)" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
     </div>
-  </div>
+    <div class="space-y-3 text-xs">
+      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800">
+        <div class="flex justify-between font-semibold text-amber-400"><span>Slot Confirmed</span><span class="text-[10px] text-slate-500">10m ago</span></div>
+        <p class="text-slate-300 mt-1">Badminton Court #2 reserved for today at 6:00 PM.</p>
+      </div>
+      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800">
+        <div class="flex justify-between font-semibold text-emerald-400"><span>Wallet Credited</span><span class="text-[10px] text-slate-500">2h ago</span></div>
+        <p class="text-slate-300 mt-1">₹500 auto-refund processed for cancelled table booking.</p>
+      </div>
+    </div>
+  </aside>
 
   <main id="screen-home" class="screen space-y-5 p-4 pb-28">
     <div class="relative rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/50 shadow-lg">
@@ -104,135 +96,82 @@
       <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-4 justify-between">
         <div>
           <span class="bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Now Showing</span>
-          <h2 class="text-yellow-400 font-black tracking-wider text-xl uppercase mt-1">MIRZAPUR: SEASON 3</h2>
+          <h2 class="text-yellow-400 font-black tracking-wider text-xl uppercase mt-1">MIRZAPUR 3</h2>
         </div>
-        <button onclick="switchTab('movie')" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-semibold hover:bg-blue-500">Book ₹125</button>
+        <button onclick="openSeatPicker('MIRZAPUR 3')" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-semibold hover:bg-blue-500">Book Seat</button>
       </div>
+    </div>
+
+    <div class="bg-[#131b30] p-3 rounded-2xl border border-slate-800 flex justify-between items-center text-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center text-base"><i class="fa-solid fa-calendar-check"></i></div>
+        <div>
+          <p class="font-bold text-slate-200">Upcoming Slot: Badminton</p>
+          <p class="text-[10px] text-slate-400">Today • Court 2 • 06:00 PM</p>
+        </div>
+      </div>
+      <button onclick="alert('Reservation checked in!')" class="bg-slate-800 hover:bg-slate-700 text-amber-400 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-slate-700">Check In</button>
     </div>
 
     <div class="grid grid-cols-3 gap-3">
       <button onclick="switchTab('account')" class="bg-[#1d2744] hover:bg-[#253257] p-3 rounded-2xl flex items-center justify-center gap-2 border border-slate-700/40">
         <div class="w-7 h-7 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs"><i class="fa-solid fa-indian-rupee-sign"></i></div>
-        <span class="text-xs font-semibold">₹194 Dues</span>
+        <span class="text-xs font-semibold" id="homeDuesText">₹194 Dues</span>
       </button>
-      <button onclick="openModal('Executive Management', '<p class=\'text-sm leading-relaxed\'><b>Board Members:</b><br/>• President: Dr. V. Patel<br/>• Vice President: S. Mehta<br/>• Hon. Secretary: R. Shah<br/>• Joint Secretary: A. Joshi</p>')" class="bg-[#facc15] text-black hover:bg-yellow-400 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
-        <i class="fa-solid fa-user-gear text-sm"></i>
-        <span class="text-xs">Management</span>
+      <button onclick="openFoodMenu()" class="bg-[#131b30] hover:bg-[#1c2745] p-3 rounded-2xl flex items-center justify-center gap-2 border border-slate-700/40 text-amber-400 font-semibold">
+        <i class="fa-solid fa-utensils text-sm"></i>
+        <span class="text-xs text-white">Food Order</span>
       </button>
-      <button onclick="openModal('Member Affiliation', '<p class=\'text-sm\'>Verified Active Reciprocal Status across 45 affiliated clubs.</p>')" class="bg-[#10b981] text-white hover:bg-emerald-600 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
-        <i class="fa-solid fa-handshake text-sm"></i>
+      <button onclick="openDigitalPass()" class="bg-[#10b981] text-white hover:bg-emerald-600 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
+        <i class="fa-solid fa-qrcode text-sm"></i>
+        <span class="text-xs">QR Pass</span>
       </button>
     </div>
 
     <div>
-      <h2 class="text-sm font-semibold mb-3 text-slate-300">Online Booking</h2>
-      <div class="grid grid-cols-2 gap-3">
-        <div onclick="switchTab('movie')" class="bg-[#151d33] p-3 rounded-2xl border border-slate-800 cursor-pointer relative h-32 flex flex-col justify-between overflow-hidden group">
-          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=300" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition" />
-          <div class="relative z-10 text-right"><span class="bg-red-500/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">3 SHOWS</span></div>
-          <span class="relative z-10 font-bold text-sm">Movies</span>
-        </div>
-        <div onclick="switchTab('event')" class="bg-[#151d33] p-4 rounded-2xl border border-slate-800 cursor-pointer h-32 flex flex-col justify-center items-center text-center">
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 border border-slate-600 px-2 py-1 rounded mb-1">Mandala Workshop</span>
-          <span class="text-[10px] text-slate-500">Scheduled: May 29, 2026</span>
-          <span class="font-bold text-sm mt-2 text-blue-400">View Events</span>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <h2 class="text-sm font-semibold mb-3 text-slate-300">Booking of Sports Facilities</h2>
+      <h2 class="text-sm font-semibold mb-3 text-slate-300">Book Sports Slot</h2>
       <div class="bg-[#131b30] p-4 rounded-2xl border border-slate-800">
         <div class="grid grid-cols-4 gap-y-4 gap-x-2 text-center">
-          <div onclick="bookFacility('Accupressure')" class="cursor-pointer group">
-            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-hand-holding-heart"></i></div>
-            <span class="text-[10px] text-slate-300 mt-1 block truncate">Accupressure</span>
-          </div>
-          <div onclick="bookFacility('Aerobics')" class="cursor-pointer group">
-            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-child-reaching"></i></div>
-            <span class="text-[10px] text-slate-300 mt-1 block truncate">Aerobics</span>
-          </div>
-          <div onclick="bookFacility('Badminton')" class="cursor-pointer group">
+          <div onclick="openSportsPicker('Badminton')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Badminton</span>
           </div>
-          <div onclick="bookFacility('Billiards')" class="cursor-pointer group">
-            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-circle-dot"></i></div>
-            <span class="text-[10px] text-slate-300 mt-1 block truncate">Billiards</span>
-          </div>
-          <div onclick="bookFacility('Body Massage')" class="cursor-pointer group">
-            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-spa"></i></div>
-            <span class="text-[10px] text-slate-300 mt-1 block truncate">Massage</span>
-          </div>
-          <div onclick="bookFacility('Box Cricket')" class="cursor-pointer group">
+          <div onclick="openSportsPicker('Box Cricket')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-baseball-bat-ball"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Box Cricket</span>
           </div>
-          <div onclick="bookFacility('Card Room')" class="cursor-pointer group">
+          <div onclick="openSportsPicker('Billiards')" class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-circle-dot"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Billiards</span>
+          </div>
+          <div onclick="openSportsPicker('Card Room')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-heart"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Card Room</span>
           </div>
-          <div onclick="openModal('Facilities', '<p class=\'text-sm\'>Additional Facilities:<br/>• Swimming Pool<br/>• Squash Court<br/>• Lawn Tennis<br/>• Table Tennis</p>')" class="cursor-pointer group">
-            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-border-all"></i></div>
-            <span class="text-[10px] text-slate-300 mt-1 block truncate">More</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <h2 class="text-sm font-semibold mb-3 text-slate-300">Facilities</h2>
-      <div class="grid grid-cols-2 gap-3">
-        <div onclick="openModal('Guest Rooms', '<p class=\'text-sm\'>Deluxe Rooms: ₹2,500/night<br/>Executive Suites: ₹4,500/night<br/><br/><i>Contact front desk to book.</i></p>')" class="bg-[#131b30] p-2.5 rounded-2xl border border-slate-800 cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover rounded-xl mb-2" />
-          <span class="font-medium text-xs text-slate-200 px-1">Guest Rooms</span>
-        </div>
-        <div onclick="openModal('Restaurants', '<p class=\'text-sm\'>1. Poolside Bistro (12 PM - 11 PM)<br/>2. Royal Fine Dining (7 PM - 11:30 PM)</p>')" class="bg-[#131b30] p-2.5 rounded-2xl border border-slate-800 cursor-pointer">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover rounded-xl mb-2" />
-          <span class="font-medium text-xs text-slate-200 px-1">Restaurants</span>
         </div>
       </div>
     </div>
   </main>
 
   <main id="screen-account" class="screen hidden p-4 space-y-4 pb-28">
-    <div class="flex justify-between items-center bg-[#131b30] p-4 rounded-2xl border border-slate-800">
-      <div>
-        <p class="text-xs text-slate-400">Outstanding Balance</p>
-        <p class="text-xl font-bold text-white mt-0.5">₹194.01 <span class="text-xs text-slate-400 font-normal">Dr</span></p>
+    <div class="bg-[#131b30] p-4 rounded-2xl border border-slate-800 space-y-3">
+      <div class="flex justify-between items-center">
+        <div>
+          <p class="text-xs text-slate-400">Outstanding Dues</p>
+          <p id="accountDues" class="text-xl font-bold text-white mt-0.5">₹194.01</p>
+        </div>
+        <button onclick="payDues()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Clear Dues</button>
       </div>
-      <button onclick="alert('Redirecting to Razorpay Payment Gateway...')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Pay Now</button>
-    </div>
-
-    <div class="bg-[#131b30] p-1 rounded-xl flex border border-slate-800/80 text-xs">
-      <button onclick="toggleAccountSubTab('invoices')" id="btn-invoices" class="flex-1 py-2 text-center rounded-lg font-medium bg-blue-600 text-white transition">Invoices</button>
-      <button onclick="toggleAccountSubTab('activities')" id="btn-activities" class="flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition">Activities</button>
-      <button onclick="toggleAccountSubTab('statement')" id="btn-statement" class="flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition">Statement</button>
+      <div class="border-t border-slate-800 pt-3 flex justify-between items-center text-xs">
+        <span class="text-slate-400">Club Prepaid Wallet: <b id="walletBal" class="text-emerald-400">₹1,250.00</b></span>
+        <button onclick="topUpWallet()" class="text-amber-400 hover:underline font-semibold">+ Top Up</button>
+      </div>
     </div>
 
     <div id="view-invoices" class="space-y-2">
-      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
-        <div><p class="font-mono text-slate-300">RCL2607009862</p><p class="text-[10px] text-slate-500">Jul 2026 • Paid</p></div>
-        <div class="flex items-center gap-2"><span class="font-semibold text-emerald-400">₹0.00</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
-      </div>
-      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
-        <div><p class="font-mono text-slate-300">RCL2606010670</p><p class="text-[10px] text-slate-500">Jun 2026 • Restaurant Bill</p></div>
-        <div class="flex items-center gap-2"><span class="font-semibold">₹89.06</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
-      </div>
-    </div>
-
-    <div id="view-activities" class="hidden space-y-3">
-      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 space-y-2 text-xs">
-        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
-          <div><p class="text-[10px] text-slate-500">#2 &nbsp; 02 Sep 2026</p><p class="font-medium text-slate-200 mt-0.5">Event: Murli Utsav Pass (x2)</p></div>
-          <span class="font-semibold text-slate-100">₹150.00</span>
-        </div>
-      </div>
-    </div>
-
-    <div id="view-statement" class="hidden space-y-3">
-      <div class="bg-[#131b30] p-4 rounded-xl border border-slate-800 text-xs space-y-2 text-slate-300">
-        <div class="flex justify-between"><span>Closing Dues:</span><span class="font-mono font-bold text-white">₹194.01</span></div>
+      <div onclick="openModal('Invoice #RCL2606010670', '<div class=\'space-y-2 text-xs\'><p><b>Date:</b> Jun 12, 2026</p><p><b>Items:</b> Poolside Bistro Dine-in (₹89.06)</p><p><b>Status:</b> Billed to Member Account</p></div>')" class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs cursor-pointer hover:bg-slate-800/50">
+        <div><p class="font-mono text-slate-300">RCL2606010670</p><p class="text-[10px] text-slate-500">Jun 2026 • Restaurant</p></div>
+        <span class="font-semibold text-slate-200">₹89.06 <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i></span>
       </div>
     </div>
   </main>
@@ -240,15 +179,21 @@
   <main id="screen-movie" class="screen hidden p-4 space-y-4 pb-28">
     <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden p-4 space-y-3">
       <h3 class="font-bold text-base tracking-wide">MIRZAPUR: THE CLUB CUT</h3>
-      <p class="text-xs text-slate-400">Showtimes: 02:00 PM | 06:30 PM</p>
-      <button onclick="alert('Seats Booked!')" class="bg-blue-600 text-white text-xs px-4 py-2 rounded-xl font-semibold">Book Now ₹125</button>
+      <p class="text-xs text-slate-400">Timings: 02:00 PM • 06:30 PM | Auditorium Screen 1</p>
+      <button onclick="openSeatPicker('MIRZAPUR 3')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl w-full">Interactive Seat Booking (₹125)</button>
+    </div>
+    <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden p-4 space-y-3">
+      <h3 class="font-bold text-base tracking-wide">STREE 2</h3>
+      <p class="text-xs text-slate-400">Timings: 08:00 PM | Main Hall</p>
+      <button onclick="openSeatPicker('STREE 2')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl w-full">Interactive Seat Booking (₹150)</button>
     </div>
   </main>
 
   <main id="screen-event" class="screen hidden p-4 space-y-4 pb-28">
     <div class="bg-[#131b30] rounded-2xl border border-slate-800 p-4 space-y-2">
       <h3 class="font-bold text-sm text-amber-400">MURLI UTSAV & DANDIYA 2026</h3>
-      <p class="text-xs text-slate-300">Oct 12, 2026 • Live Orchestra</p>
+      <p class="text-xs text-slate-300">Oct 12, 2026 • Grand Lawn</p>
+      <button onclick="alert('Passes booked and charged to wallet!')" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-medium mt-2">Get Passes (₹150)</button>
     </div>
   </main>
 
@@ -271,28 +216,39 @@
     </button>
   </nav>
 
+  <div id="infoModal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#131b30] border border-slate-700/80 rounded-2xl w-full max-w-sm p-5 space-y-4 shadow-2xl relative">
+      <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+        <h3 id="modalTitle" class="font-bold text-base text-amber-400">Title</h3>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-white text-lg px-2"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="modalBody" class="text-slate-200"></div>
+      <button onclick="closeModal()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs py-2.5 rounded-xl transition">Close</button>
+    </div>
+  </div>
+
   <script>
+    let walletBalance = 1250;
+    let currentDues = 194.01;
+    let selectedSeats = [];
+
     function toggleDrawer(open) {
-      const drawer = document.getElementById('drawer');
-      const overlay = document.getElementById('drawerOverlay');
-      if (open) {
-        drawer.classList.remove('-translate-x-full');
-        overlay.classList.remove('hidden');
-      } else {
-        drawer.classList.add('-translate-x-full');
-        overlay.classList.add('hidden');
-      }
+      document.getElementById('drawer').classList.toggle('-translate-x-full', !open);
+      document.getElementById('drawerOverlay').classList.toggle('hidden', !open);
+    }
+
+    function toggleNotifications(open) {
+      document.getElementById('notifTray').classList.toggle('translate-x-full', !open);
+      document.getElementById('notifOverlay').classList.toggle('hidden', !open);
     }
 
     function toggleSubMenu(id) {
       const sub = document.getElementById(id);
-      const chevron = document.getElementById(`${id}Chevron`);
       sub.classList.toggle('hidden');
-      if (chevron) chevron.classList.toggle('rotate-180');
     }
 
     function openModal(title, contentHtml) {
-      toggleDrawer(false); // Close drawer first
+      toggleDrawer(false);
       document.getElementById('modalTitle').innerText = title;
       document.getElementById('modalBody').innerHTML = contentHtml;
       document.getElementById('infoModal').classList.remove('hidden');
@@ -317,25 +273,124 @@
       activeBtn.classList.add('text-amber-400');
       activeBtn.querySelector('div').classList.add('bg-blue-600/30');
 
-      const titles = { home: 'Home', account: 'Account', movie: 'Explore', event: 'Explore' };
+      const titles = { home: 'Home', account: 'Account', movie: 'Movies', event: 'Events' };
       document.getElementById('headerTitle').innerText = titles[screenName];
     }
 
-    function toggleAccountSubTab(tab) {
-      document.getElementById('view-invoices').classList.add('hidden');
-      document.getElementById('view-activities').classList.add('hidden');
-      document.getElementById('view-statement').classList.add('hidden');
-      
-      document.getElementById('btn-invoices').className = "flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition";
-      document.getElementById('btn-activities').className = "flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition";
-      document.getElementById('btn-statement').className = "flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition";
-
-      document.getElementById(`view-${tab}`).classList.remove('hidden');
-      document.getElementById(`btn-${tab}`).className = "flex-1 py-2 text-center rounded-lg font-medium bg-blue-600 text-white transition";
+    // MODULE 1: Digital Gate Pass
+    function openDigitalPass() {
+      openModal('Digital Member Pass', `
+        <div class="text-center space-y-3">
+          <p class="text-xs text-slate-400">Scan at main gate or sports arena turnstiles</p>
+          <div class="bg-white p-3 rounded-xl inline-block">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=RAJPATH-E1079-VERIFIED" class="w-36 h-36" />
+          </div>
+          <p class="font-mono text-sm font-bold text-amber-400">Ramesh Shah (E1079)</p>
+          <p class="text-[10px] text-emerald-400 font-semibold">● Active Status Verified</p>
+        </div>
+      `);
     }
 
-    function bookFacility(name) {
-      openModal('Facility Reserved', `<p class="text-sm"><b>Requested Facility:</b> ${name}<br/><br/>Slot assigned: Today at 6:00 PM.<br/>Confirmation sent to registered mobile.</p>`);
+    // MODULE 2: Interactive Movie Seat Picker
+    function openSeatPicker(movieTitle) {
+      selectedSeats = [];
+      let seatGrid = `<div class="text-center space-y-3"><p class="text-xs text-slate-300">Screen Layout (${movieTitle})</p><div class="w-full bg-blue-500/20 py-1 rounded text-[10px] text-blue-300 font-bold mb-3">STAGE / SCREEN</div><div class="grid grid-cols-5 gap-2 max-w-xs mx-auto">`;
+      
+      for (let i = 1; i <= 15; i++) {
+        seatGrid += `<button id="seat-${i}" onclick="toggleSeat(${i})" class="bg-slate-700 text-xs py-2 rounded font-semibold hover:bg-amber-400 hover:text-black transition">${i}</button>`;
+      }
+      seatGrid += `</div><div class="text-xs text-slate-400 flex justify-between pt-2"><span>Total Price: <b id="seatTotalPrice" class="text-white">₹0</b></span><button onclick="confirmSeats('${movieTitle}')" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg">Confirm Booking</button></div></div>`;
+      
+      openModal('Select Seats', seatGrid);
+    }
+
+    function toggleSeat(seatNum) {
+      const btn = document.getElementById(`seat-${seatNum}`);
+      if (selectedSeats.includes(seatNum)) {
+        selectedSeats = selectedSeats.filter(s => s !== seatNum);
+        btn.classList.remove('bg-amber-400', 'text-black');
+        btn.classList.add('bg-slate-700', 'text-white');
+      } else {
+        selectedSeats.push(seatNum);
+        btn.classList.remove('bg-slate-700', 'text-white');
+        btn.classList.add('bg-amber-400', 'text-black');
+      }
+      document.getElementById('seatTotalPrice').innerText = `₹${selectedSeats.length * 125}`;
+    }
+
+    function confirmSeats(movieTitle) {
+      if (selectedSeats.length === 0) return alert('Select at least one seat!');
+      const cost = selectedSeats.length * 125;
+      if (walletBalance >= cost) {
+        walletBalance -= cost;
+        document.getElementById('walletBal').innerText = `₹${walletBalance.toFixed(2)}`;
+        alert(`Successfully booked ${selectedSeats.length} seat(s) for ${movieTitle}! ₹${cost} deducted from wallet.`);
+        closeModal();
+      } else {
+        alert('Insufficient wallet balance! Please top up.');
+      }
+    }
+
+    // MODULE 3: Sports Slot Timetable
+    function openSportsPicker(facility) {
+      openModal(`Book ${facility}`, `
+        <div class="space-y-3 text-xs">
+          <p class="text-slate-300">Select Available Slot for Today:</p>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="confirmSlot('${facility}', '06:00 AM')" class="p-2 bg-emerald-600/30 border border-emerald-500/50 rounded-lg text-emerald-300 text-center font-bold">06:00 AM - Available</button>
+            <button onclick="confirmSlot('${facility}', '07:00 AM')" class="p-2 bg-emerald-600/30 border border-emerald-500/50 rounded-lg text-emerald-300 text-center font-bold">07:00 AM - Available</button>
+            <button disabled class="p-2 bg-slate-800 border border-slate-700 rounded-lg text-slate-500 text-center opacity-50">06:00 PM - Reserved</button>
+            <button onclick="confirmSlot('${facility}', '08:00 PM')" class="p-2 bg-emerald-600/30 border border-emerald-500/50 rounded-lg text-emerald-300 text-center font-bold">08:00 PM - Available</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function confirmSlot(facility, time) {
+      alert(`Reserved ${facility} slot for ${time} today! Confirmation SMS sent.`);
+      closeModal();
+    }
+
+    // MODULE 4: Food Ordering
+    function openFoodMenu() {
+      openModal('Poolside Bistro Menu', `
+        <div class="space-y-3 text-xs">
+          <div class="flex justify-between items-center p-2 bg-slate-800 rounded-lg">
+            <div><p class="font-bold">Paneer Tikka</p><p class="text-[10px] text-slate-400">₹220</p></div>
+            <button onclick="orderFood('Paneer Tikka', 220)" class="bg-amber-400 text-black px-3 py-1 rounded font-bold">+ Order</button>
+          </div>
+          <div class="flex justify-between items-center p-2 bg-slate-800 rounded-lg">
+            <div><p class="font-bold">Cold Coffee</p><p class="text-[10px] text-slate-400">₹110</p></div>
+            <button onclick="orderFood('Cold Coffee', 110)" class="bg-amber-400 text-black px-3 py-1 rounded font-bold">+ Order</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function orderFood(item, price) {
+      if (walletBalance >= price) {
+        walletBalance -= price;
+        document.getElementById('walletBal').innerText = `₹${walletBalance.toFixed(2)}`;
+        alert(`Ordered ${item}! ₹${price} charged to wallet. Delivery to Court/Table in 15 mins.`);
+        closeModal();
+      } else {
+        alert('Insufficient wallet balance!');
+      }
+    }
+
+    // Payments & Wallet
+    function payDues() {
+      if (currentDues === 0) return alert('No dues pending!');
+      currentDues = 0;
+      document.getElementById('accountDues').innerText = '₹0.00';
+      document.getElementById('homeDuesText').innerText = '₹0 Dues';
+      alert('Dues paid successfully via Razorpay!');
+    }
+
+    function topUpWallet() {
+      walletBalance += 1000;
+      document.getElementById('walletBal').innerText = `₹${walletBalance.toFixed(2)}`;
+      alert('₹1,000 added to your Club Wallet!');
     }
   </script>
 </body>
