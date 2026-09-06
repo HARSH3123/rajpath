@@ -13,14 +13,14 @@
 </head>
 <body class="bg-[#0b1329] text-white font-sans max-w-md mx-auto min-h-screen relative border-x border-slate-800/80 selection:bg-blue-500 selection:text-white">
 
-  <header class="p-4 flex justify-between items-center bg-[#0b1329] sticky top-0 z-30">
+  <header class="p-4 flex justify-between items-center bg-[#0b1329] sticky top-0 z-30 border-b border-slate-800/40">
     <button onclick="toggleDrawer(true)" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-slate-200">
       <i class="fa-solid fa-bars-staggered"></i>
     </button>
     <h1 id="headerTitle" class="text-xl font-bold tracking-wide">Home</h1>
-    <button class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-amber-400 relative">
+    <button onclick="alert('Notification: AI Gym slot confirmed for 6:00 PM today!')" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-amber-400 relative">
       <i class="fa-solid fa-bell"></i>
-      <span class="absolute top-2 right-2 w-2 h-2 bg-amber-400 rounded-full"></span>
+      <span class="absolute top-2 right-2 w-2 h-2 bg-amber-400 rounded-full animate-ping"></span>
     </button>
   </header>
 
@@ -31,8 +31,8 @@
         <div class="flex items-center gap-3">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Profile" class="w-12 h-12 rounded-full object-cover border-2 border-amber-400/50" />
           <div>
-            <h3 class="font-bold text-base flex items-center gap-1">Ramesh ... <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></h3>
-            <p class="text-xs text-slate-400 font-mono">E1079</p>
+            <h3 class="font-bold text-base flex items-center gap-1">Ramesh Shah <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></h3>
+            <p class="text-xs text-slate-400 font-mono">E1079 • Premium Member</p>
           </div>
         </div>
         <button onclick="toggleDrawer(false)" class="text-slate-400 hover:text-white text-lg">
@@ -42,54 +42,55 @@
 
       <nav class="space-y-4 text-sm font-medium text-slate-300">
         <div class="border-b border-slate-800/80 pb-3">
-          <div class="flex justify-between items-center py-1 cursor-pointer">
+          <div class="flex justify-between items-center py-1 cursor-pointer" onclick="toggleSubMenu('aboutSub')">
             <span>About Club</span>
             <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
           </div>
-          <div class="mt-2 pl-2 space-y-3 text-slate-400 text-xs">
-            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-message text-amber-400 w-4"></i> President Message</a>
+          <div id="aboutSub" class="mt-2 pl-2 space-y-3 text-slate-400 text-xs">
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-message text-amber-400 w-4"></i> President's Message</a>
             <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-users text-amber-400 w-4"></i> AGM INFO 2026</a>
-            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-shield-halved text-amber-400 w-4"></i> CSR POLICY</a>
-            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-address-card text-amber-400 w-4"></i> Membership</a>
-            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-gear text-amber-400 w-4"></i> Management</a>
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-shield-halved text-amber-400 w-4"></i> CSR Policy</a>
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-address-card text-amber-400 w-4"></i> Membership Tier</a>
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-gear text-amber-400 w-4"></i> Executive Board</a>
           </div>
         </div>
 
-        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-image text-amber-400 w-4"></i> Photo Gallery</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-image text-amber-400 w-4"></i> Photo Gallery (2026)</a>
         <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-globe text-amber-400 w-4"></i> Rajpath World</a>
-        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-diagram-project text-amber-400 w-4"></i> Affiliated Clubs</a>
-        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-file-arrow-down text-amber-400 w-4"></i> Forms Downloads</a>
-        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-indian-rupee-sign text-amber-400 w-4"></i> Guest Entry Charges</a>
-        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-headset text-amber-400 w-4"></i> Contact Us</a>
-        <a href="#" class="flex items-center justify-between py-1 hover:text-white"><span>Booking History</span><i class="fa-solid fa-chevron-down text-xs text-slate-500"></i></a>
-        <a href="#" class="flex items-center justify-between py-1 hover:text-white"><span>Club Amenities</span><i class="fa-solid fa-chevron-down text-xs text-slate-500"></i></a>
-        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-list-check text-amber-400 w-4"></i> Activities</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-diagram-project text-amber-400 w-4"></i> Affiliated Reciprocal Clubs</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-file-arrow-down text-amber-400 w-4"></i> Forms & Downloads</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-indian-rupee-sign text-amber-400 w-4"></i> Guest Charges & Rules</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-headset text-amber-400 w-4"></i> Support & Concierge</a>
         <a href="#" class="flex items-center gap-3 py-1 text-red-400 hover:text-red-300"><i class="fa-solid fa-right-from-bracket w-4"></i> Logout</a>
       </nav>
     </div>
     <div class="text-xs text-slate-500 pt-6 border-t border-slate-800/80">
-      Version: 1.16
+      Version 1.16 • Build 2026.09
     </div>
   </aside>
 
   <main id="screen-home" class="screen space-y-5 p-4 pb-28">
     <div class="relative rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/50 shadow-lg">
       <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" alt="Mirzapur Banner" class="w-full h-44 object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-        <span class="text-yellow-400 font-black tracking-widest text-2xl uppercase drop-shadow">Mirzapur</span>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-4 justify-between">
+        <div>
+          <span class="bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Now Showing</span>
+          <h2 class="text-yellow-400 font-black tracking-wider text-xl uppercase mt-1">MIRZAPUR: SEASON 3</h2>
+        </div>
+        <button onclick="switchTab('movie')" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-semibold hover:bg-blue-500">Book ₹125</button>
       </div>
     </div>
 
     <div class="grid grid-cols-3 gap-3">
       <button onclick="switchTab('account')" class="bg-[#1d2744] hover:bg-[#253257] p-3 rounded-2xl flex items-center justify-center gap-2 border border-slate-700/40">
         <div class="w-7 h-7 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs"><i class="fa-solid fa-indian-rupee-sign"></i></div>
-        <span class="text-xs font-semibold">Dues</span>
+        <span class="text-xs font-semibold">₹194 Dues</span>
       </button>
-      <button class="bg-[#facc15] text-black hover:bg-yellow-400 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
+      <button onclick="alert('Management Contacts:\nPresident: +91 9876543210\nSecretary: +91 9876543211')" class="bg-[#facc15] text-black hover:bg-yellow-400 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
         <i class="fa-solid fa-user-gear text-sm"></i>
         <span class="text-xs">Management</span>
       </button>
-      <button class="bg-[#10b981] text-white hover:bg-emerald-600 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
+      <button onclick="alert('Member Affiliation Status: Verified')" class="bg-[#10b981] text-white hover:bg-emerald-600 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
         <i class="fa-solid fa-handshake text-sm"></i>
       </button>
     </div>
@@ -97,15 +98,15 @@
     <div>
       <h2 class="text-sm font-semibold mb-3 text-slate-300">Online Booking</h2>
       <div class="grid grid-cols-2 gap-3">
-        <div onclick="switchTab('movie')" class="bg-[#151d33] p-3 rounded-2xl border border-slate-800 cursor-pointer relative h-32 flex flex-col justify-between overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=300" class="absolute inset-0 w-full h-full object-cover opacity-40" />
-          <div class="relative z-10 text-right"><span class="bg-red-500/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">LIVE</span></div>
+        <div onclick="switchTab('movie')" class="bg-[#151d33] p-3 rounded-2xl border border-slate-800 cursor-pointer relative h-32 flex flex-col justify-between overflow-hidden group">
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=300" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition" />
+          <div class="relative z-10 text-right"><span class="bg-red-500/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">3 SHOWS</span></div>
           <span class="relative z-10 font-bold text-sm">Movies</span>
         </div>
         <div onclick="switchTab('event')" class="bg-[#151d33] p-4 rounded-2xl border border-slate-800 cursor-pointer h-32 flex flex-col justify-center items-center text-center">
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 border border-slate-600 px-2 py-1 rounded mb-1">No Event</span>
-          <span class="text-[10px] text-slate-500">Scheduled At This Time</span>
-          <span class="font-bold text-sm mt-2">Events</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 border border-slate-600 px-2 py-1 rounded mb-1">Mandala Workshop</span>
+          <span class="text-[10px] text-slate-500">Scheduled: May 29, 2026</span>
+          <span class="font-bold text-sm mt-2 text-blue-400">View Events</span>
         </div>
       </div>
     </div>
@@ -114,35 +115,35 @@
       <h2 class="text-sm font-semibold mb-3 text-slate-300">Booking of Sports Facilities</h2>
       <div class="bg-[#131b30] p-4 rounded-2xl border border-slate-800">
         <div class="grid grid-cols-4 gap-y-4 gap-x-2 text-center">
-          <div class="cursor-pointer group">
+          <div onclick="bookFacility('Accupressure')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-hand-holding-heart"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Accupressure</span>
           </div>
-          <div class="cursor-pointer group">
+          <div onclick="bookFacility('Aerobics')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-child-reaching"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Aerobics</span>
           </div>
-          <div class="cursor-pointer group">
+          <div onclick="bookFacility('Badminton')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Badminton</span>
           </div>
-          <div class="cursor-pointer group">
+          <div onclick="bookFacility('Billiards')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-circle-dot"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Billiards</span>
           </div>
-          <div class="cursor-pointer group">
+          <div onclick="bookFacility('Body Massage')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-spa"></i></div>
-            <span class="text-[10px] text-slate-300 mt-1 block truncate">Body Massage</span>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Massage</span>
           </div>
-          <div class="cursor-pointer group">
+          <div onclick="bookFacility('Box Cricket')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-baseball-bat-ball"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Box Cricket</span>
           </div>
-          <div class="cursor-pointer group">
+          <div onclick="bookFacility('Card Room')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-heart"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">Card Room</span>
           </div>
-          <div class="cursor-pointer group">
+          <div onclick="alert('Additional Facilities: Swimming Pool, Squash Court, Lawn Tennis, Table Tennis')" class="cursor-pointer group">
             <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-border-all"></i></div>
             <span class="text-[10px] text-slate-300 mt-1 block truncate">More</span>
           </div>
@@ -153,11 +154,11 @@
     <div>
       <h2 class="text-sm font-semibold mb-3 text-slate-300">Facilities</h2>
       <div class="grid grid-cols-2 gap-3">
-        <div class="bg-[#131b30] p-2.5 rounded-2xl border border-slate-800">
+        <div onclick="alert('Deluxe Rooms: ₹2,500/night\nExecutive Suites: ₹4,500/night')" class="bg-[#131b30] p-2.5 rounded-2xl border border-slate-800 cursor-pointer">
           <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover rounded-xl mb-2" />
-          <span class="font-medium text-xs text-slate-200 px-1">Rooms</span>
+          <span class="font-medium text-xs text-slate-200 px-1">Guest Rooms</span>
         </div>
-        <div class="bg-[#131b30] p-2.5 rounded-2xl border border-slate-800">
+        <div onclick="alert('Restaurants Open: \n1. Poolside Bistro (12 PM - 11 PM)\n2. Royal Fine Dining (7 PM - 11:30 PM)')" class="bg-[#131b30] p-2.5 rounded-2xl border border-slate-800 cursor-pointer">
           <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover rounded-xl mb-2" />
           <span class="font-medium text-xs text-slate-200 px-1">Restaurants</span>
         </div>
@@ -171,7 +172,7 @@
         <p class="text-xs text-slate-400">Outstanding Balance</p>
         <p class="text-xl font-bold text-white mt-0.5">₹194.01 <span class="text-xs text-slate-400 font-normal">Dr</span></p>
       </div>
-      <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Pay Now</button>
+      <button onclick="alert('Redirecting to Razorpay Payment Gateway...')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Pay Now</button>
     </div>
 
     <div class="bg-[#131b30] p-1 rounded-xl flex border border-slate-800/80 text-xs">
@@ -182,20 +183,20 @@
 
     <div id="view-invoices" class="space-y-2">
       <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
-        <div><p class="font-mono text-slate-300">RCL2607009862</p><p class="text-[10px] text-slate-500">Jul 2026</p></div>
-        <div class="flex items-center gap-2"><span class="font-semibold">₹0.00</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
+        <div><p class="font-mono text-slate-300">RCL2607009862</p><p class="text-[10px] text-slate-500">Jul 2026 • Paid</p></div>
+        <div class="flex items-center gap-2"><span class="font-semibold text-emerald-400">₹0.00</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
       </div>
       <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
-        <div><p class="font-mono text-slate-300">RCL2606010670</p><p class="text-[10px] text-slate-500">Jun 2026</p></div>
+        <div><p class="font-mono text-slate-300">RCL2606010670</p><p class="text-[10px] text-slate-500">Jun 2026 • Restaurant Bill</p></div>
         <div class="flex items-center gap-2"><span class="font-semibold">₹89.06</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
       </div>
       <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
-        <div><p class="font-mono text-slate-300">RCL2605008777</p><p class="text-[10px] text-slate-500">May 2026</p></div>
+        <div><p class="font-mono text-slate-300">RCL2605008777</p><p class="text-[10px] text-slate-500">May 2026 • Guest Entry</p></div>
         <div class="flex items-center gap-2"><span class="font-semibold">₹295.00</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
       </div>
       <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
-        <div><p class="font-mono text-slate-300">RCL2604015367</p><p class="text-[10px] text-slate-500">Apr 2026</p></div>
-        <div class="flex items-center gap-2"><span class="font-semibold">₹8053.50</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
+        <div><p class="font-mono text-slate-300">RCL2604015367</p><p class="text-[10px] text-slate-500">Apr 2026 • Annual Maintenance</p></div>
+        <div class="flex items-center gap-2"><span class="font-semibold">₹8,053.50</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
       </div>
     </div>
 
@@ -206,13 +207,22 @@
       </div>
       <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 space-y-2 text-xs">
         <div class="flex justify-between items-center border-b border-slate-800 pb-2">
-          <div><p class="text-[10px] text-slate-500">#2 &nbsp; 02 Sep 2026</p><p class="font-medium text-slate-200 mt-0.5">Event Booking Charges: Murli Uts...</p></div>
+          <div><p class="text-[10px] text-slate-500">#2 &nbsp; 02 Sep 2026</p><p class="font-medium text-slate-200 mt-0.5">Event: Murli Utsav Pass (x2)</p></div>
           <span class="font-semibold text-slate-100">₹150.00</span>
         </div>
         <div class="flex justify-between items-center pt-1">
-          <div><p class="text-[10px] text-slate-500">#1 &nbsp; 15 Aug 2026</p><p class="font-medium text-slate-200 mt-0.5">Event Booking Charges: Indepen...</p></div>
+          <div><p class="text-[10px] text-slate-500">#1 &nbsp; 15 Aug 2026</p><p class="font-medium text-slate-200 mt-0.5">Event: Independence Flag Hosting</p></div>
           <span class="font-semibold text-slate-100">₹50.00</span>
         </div>
+      </div>
+    </div>
+
+    <div id="view-statement" class="hidden space-y-3">
+      <div class="bg-[#131b30] p-4 rounded-xl border border-slate-800 text-xs space-y-2 text-slate-300">
+        <div class="flex justify-between"><span>Opening Balance (01 Aug):</span><span class="font-mono">₹0.00</span></div>
+        <div class="flex justify-between"><span>Total Debits:</span><span class="font-mono text-red-400">+₹200.00</span></div>
+        <div class="flex justify-between"><span>Total Credits:</span><span class="font-mono text-emerald-400">-₹5.99</span></div>
+        <div class="border-t border-slate-700 pt-2 flex justify-between font-bold text-white"><span>Closing Dues:</span><span class="font-mono">₹194.01</span></div>
       </div>
     </div>
   </main>
@@ -222,7 +232,7 @@
       <button class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">All</button>
       <button class="flex-1 py-1.5 text-center rounded-full font-medium bg-blue-600 text-white">Movies</button>
       <button onclick="switchTab('event')" class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">Events</button>
-      <button class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">Announce</button>
+      <button onclick="switchTab('event')" class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">Announce</button>
     </div>
 
     <div class="flex gap-2 overflow-x-auto no-scrollbar py-1">
@@ -238,17 +248,34 @@
         <button class="absolute bottom-2 right-2 w-8 h-8 bg-black/60 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-share-nodes"></i></button>
       </div>
       <div class="p-4 space-y-3">
-        <h3 class="font-bold text-base tracking-wide">MIRZAPUR</h3>
+        <h3 class="font-bold text-base tracking-wide">MIRZAPUR: THE CLUB CUT</h3>
         <div class="flex items-center gap-4 text-xs text-slate-400">
-          <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 06 Sep</span>
+          <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 06 Sep 2026</span>
           <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 02:00 PM - 05:29 PM</span>
         </div>
         <div class="flex justify-between items-center pt-2">
-          <div><span class="text-sm font-bold">₹125.00</span> <span class="text-[10px] text-slate-500">(on...</span></div>
+          <div><span class="text-sm font-bold">₹125.00</span> <span class="text-[10px] text-slate-500">(Online)</span></div>
           <div class="flex items-center gap-2">
             <span class="w-6 h-6 border border-slate-600 rounded-full flex items-center justify-center text-[10px] text-slate-400 font-bold">A</span>
-            <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Book Now</button>
+            <button onclick="alert('Seats Reserved for Mirzapur (2:00 PM Show)!')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Book Now</button>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=600" class="w-full h-40 object-cover" />
+      </div>
+      <div class="p-4 space-y-2">
+        <h3 class="font-bold text-base tracking-wide">STREE 2: AUDITORIUM SHOW</h3>
+        <div class="flex items-center gap-4 text-xs text-slate-400">
+          <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 06 Sep 2026</span>
+          <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 06:30 PM - 09:15 PM</span>
+        </div>
+        <div class="flex justify-between items-center pt-2">
+          <div><span class="text-sm font-bold">₹150.00</span></div>
+          <button onclick="alert('Seats Reserved for Stree 2 (6:30 PM Show)!')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Book Now</button>
         </div>
       </div>
     </div>
@@ -261,25 +288,37 @@
       <button onclick="toggleEventSubTab('announcements')" id="btn-announcement-tab" class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">Announcement</button>
     </div>
 
-    <div id="view-events-content" class="py-16 text-center space-y-3">
-      <div class="w-16 h-16 bg-blue-600/20 text-blue-500 rounded-full flex items-center justify-center mx-auto text-2xl">
-        <i class="fa-solid fa-file-circle-xmark"></i>
+    <div id="view-events-content" class="space-y-4">
+      <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden p-4 space-y-3">
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=500" class="w-full h-36 object-cover rounded-xl" />
+        <h3 class="font-bold text-sm tracking-wide">MURLI UTSAV & DANDIYA NIGHTS 2026</h3>
+        <p class="text-xs text-slate-400">Join us for a grand musical night with traditional live orchestra and food stalls.</p>
+        <div class="flex justify-between items-center text-xs text-slate-300 pt-1">
+          <span><i class="fa-regular fa-calendar text-amber-400"></i> 12 Oct 2026</span>
+          <button onclick="alert('Event Passes Booked for Murli Utsav!')" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-medium">Get Passes ₹150</button>
+        </div>
       </div>
-      <p class="font-semibold text-slate-300 text-base">No event found!</p>
     </div>
 
     <div id="view-announcements-content" class="hidden space-y-4">
       <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden p-4 space-y-3">
-        <div class="h-28 bg-slate-800 rounded-xl flex items-center justify-center text-slate-600 text-4xl">
-          <i class="fa-solid fa-shield-halved"></i>
-        </div>
-        <h3 class="font-bold text-sm tracking-wide">GOLDEN ERA OF BOLLYWOOD</h3>
+        <h3 class="font-bold text-sm tracking-wide text-amber-400">GOLDEN ERA OF BOLLYWOOD</h3>
+        <p class="text-xs text-slate-300">Retro classic live concert featuring classic melodies performed by renowned tribute artists.</p>
         <div class="flex justify-between items-center text-xs text-slate-400 pt-1">
           <div class="flex items-center gap-3">
             <span><i class="fa-regular fa-calendar"></i> 13 Aug</span>
             <span><i class="fa-regular fa-clock"></i> 05:31 PM</span>
           </div>
-          <button class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-medium">View Post</button>
+          <button onclick="alert('Announcement details expanded.')" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-medium">View Notice</button>
+        </div>
+      </div>
+
+      <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden p-4 space-y-3">
+        <h3 class="font-bold text-sm tracking-wide text-amber-400">MANDALA COLOURING WORKSHOP</h3>
+        <p class="text-xs text-slate-300">Encourages relaxation & stress relief. Conducted by Mrs. Mita Shah for ages 8 to 80.</p>
+        <div class="flex justify-between items-center text-xs text-slate-400 pt-1">
+          <span><i class="fa-regular fa-calendar"></i> 29 May 2026</span>
+          <span class="text-emerald-400 font-bold">₹50 + GST</span>
         </div>
       </div>
     </div>
@@ -317,14 +356,15 @@
       }
     }
 
+    function toggleSubMenu(id) {
+      const sub = document.getElementById(id);
+      sub.classList.toggle('hidden');
+    }
+
     function switchTab(screenName) {
-      // Hide all screens
       document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
-      
-      // Show targeted screen
       document.getElementById(`screen-${screenName}`).classList.remove('hidden');
 
-      // Update Navigation styling
       document.querySelectorAll('.nav-item').forEach(btn => {
         btn.classList.remove('text-amber-400');
         btn.classList.add('text-slate-500');
@@ -336,7 +376,6 @@
       activeBtn.classList.add('text-amber-400');
       activeBtn.querySelector('div').classList.add('bg-blue-600/30');
 
-      // Update Header Title
       const titles = { home: 'Home', account: 'Account', movie: 'Explore', event: 'Explore' };
       document.getElementById('headerTitle').innerText = titles[screenName];
     }
@@ -344,6 +383,7 @@
     function toggleAccountSubTab(tab) {
       document.getElementById('view-invoices').classList.add('hidden');
       document.getElementById('view-activities').classList.add('hidden');
+      document.getElementById('view-statement').classList.add('hidden');
       
       document.getElementById('btn-invoices').className = "flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition";
       document.getElementById('btn-activities').className = "flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition";
@@ -365,6 +405,10 @@
         document.getElementById('btn-events-tab').className = "flex-1 py-1.5 text-center rounded-full font-medium text-slate-400";
         document.getElementById('btn-announcement-tab').className = "flex-1 py-1.5 text-center rounded-full font-medium bg-blue-600 text-white";
       }
+    }
+
+    function bookFacility(name) {
+      alert(`AI Slot Booking System:\nRequested facility: ${name}\nNearest available slot: Today at 6:00 PM.\nStatus: Slot Reserved!`);
     }
   </script>
 </body>
