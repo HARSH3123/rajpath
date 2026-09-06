@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajpath Club Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-[#0b1329] text-white font-sans max-w-md mx-auto min-h-screen relative border-x border-slate-800/80 selection:bg-blue-500 selection:text-white">
+
+  <header class="p-4 flex justify-between items-center bg-[#0b1329] sticky top-0 z-30">
+    <button onclick="toggleDrawer(true)" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-slate-200">
+      <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+    <h1 id="headerTitle" class="text-xl font-bold tracking-wide">Home</h1>
+    <button class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-amber-400 relative">
+      <i class="fa-solid fa-bell"></i>
+      <span class="absolute top-2 right-2 w-2 h-2 bg-amber-400 rounded-full"></span>
+    </button>
+  </header>
+
+  <div id="drawerOverlay" onclick="toggleDrawer(false)" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity"></div>
+  <aside id="drawer" class="fixed top-0 left-0 bottom-0 w-4/5 max-w-xs bg-[#101a33] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-5 overflow-y-auto no-scrollbar flex flex-col justify-between">
+    <div>
+      <div class="flex justify-between items-start mb-6">
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Profile" class="w-12 h-12 rounded-full object-cover border-2 border-amber-400/50" />
+          <div>
+            <h3 class="font-bold text-base flex items-center gap-1">Ramesh ... <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i></h3>
+            <p class="text-xs text-slate-400 font-mono">E1079</p>
+          </div>
+        </div>
+        <button onclick="toggleDrawer(false)" class="text-slate-400 hover:text-white text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="space-y-4 text-sm font-medium text-slate-300">
+        <div class="border-b border-slate-800/80 pb-3">
+          <div class="flex justify-between items-center py-1 cursor-pointer">
+            <span>About Club</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+          </div>
+          <div class="mt-2 pl-2 space-y-3 text-slate-400 text-xs">
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-message text-amber-400 w-4"></i> President Message</a>
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-users text-amber-400 w-4"></i> AGM INFO 2026</a>
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-shield-halved text-amber-400 w-4"></i> CSR POLICY</a>
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-address-card text-amber-400 w-4"></i> Membership</a>
+            <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-gear text-amber-400 w-4"></i> Management</a>
+          </div>
+        </div>
+
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-image text-amber-400 w-4"></i> Photo Gallery</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-globe text-amber-400 w-4"></i> Rajpath World</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-diagram-project text-amber-400 w-4"></i> Affiliated Clubs</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-file-arrow-down text-amber-400 w-4"></i> Forms Downloads</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-indian-rupee-sign text-amber-400 w-4"></i> Guest Entry Charges</a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-headset text-amber-400 w-4"></i> Contact Us</a>
+        <a href="#" class="flex items-center justify-between py-1 hover:text-white"><span>Booking History</span><i class="fa-solid fa-chevron-down text-xs text-slate-500"></i></a>
+        <a href="#" class="flex items-center justify-between py-1 hover:text-white"><span>Club Amenities</span><i class="fa-solid fa-chevron-down text-xs text-slate-500"></i></a>
+        <a href="#" class="flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-list-check text-amber-400 w-4"></i> Activities</a>
+        <a href="#" class="flex items-center gap-3 py-1 text-red-400 hover:text-red-300"><i class="fa-solid fa-right-from-bracket w-4"></i> Logout</a>
+      </nav>
+    </div>
+    <div class="text-xs text-slate-500 pt-6 border-t border-slate-800/80">
+      Version: 1.16
+    </div>
+  </aside>
+
+  <main id="screen-home" class="screen space-y-5 p-4 pb-28">
+    <div class="relative rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/50 shadow-lg">
+      <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" alt="Mirzapur Banner" class="w-full h-44 object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+        <span class="text-yellow-400 font-black tracking-widest text-2xl uppercase drop-shadow">Mirzapur</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3">
+      <button onclick="switchTab('account')" class="bg-[#1d2744] hover:bg-[#253257] p-3 rounded-2xl flex items-center justify-center gap-2 border border-slate-700/40">
+        <div class="w-7 h-7 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+        <span class="text-xs font-semibold">Dues</span>
+      </button>
+      <button class="bg-[#facc15] text-black hover:bg-yellow-400 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
+        <i class="fa-solid fa-user-gear text-sm"></i>
+        <span class="text-xs">Management</span>
+      </button>
+      <button class="bg-[#10b981] text-white hover:bg-emerald-600 p-3 rounded-2xl flex items-center justify-center gap-2 font-semibold">
+        <i class="fa-solid fa-handshake text-sm"></i>
+      </button>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold mb-3 text-slate-300">Online Booking</h2>
+      <div class="grid grid-cols-2 gap-3">
+        <div onclick="switchTab('movie')" class="bg-[#151d33] p-3 rounded-2xl border border-slate-800 cursor-pointer relative h-32 flex flex-col justify-between overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=300" class="absolute inset-0 w-full h-full object-cover opacity-40" />
+          <div class="relative z-10 text-right"><span class="bg-red-500/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">LIVE</span></div>
+          <span class="relative z-10 font-bold text-sm">Movies</span>
+        </div>
+        <div onclick="switchTab('event')" class="bg-[#151d33] p-4 rounded-2xl border border-slate-800 cursor-pointer h-32 flex flex-col justify-center items-center text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 border border-slate-600 px-2 py-1 rounded mb-1">No Event</span>
+          <span class="text-[10px] text-slate-500">Scheduled At This Time</span>
+          <span class="font-bold text-sm mt-2">Events</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold mb-3 text-slate-300">Booking of Sports Facilities</h2>
+      <div class="bg-[#131b30] p-4 rounded-2xl border border-slate-800">
+        <div class="grid grid-cols-4 gap-y-4 gap-x-2 text-center">
+          <div class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Accupressure</span>
+          </div>
+          <div class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-child-reaching"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Aerobics</span>
+          </div>
+          <div class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Badminton</span>
+          </div>
+          <div class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-circle-dot"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Billiards</span>
+          </div>
+          <div class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-spa"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Body Massage</span>
+          </div>
+          <div class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-baseball-bat-ball"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Box Cricket</span>
+          </div>
+          <div class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-heart"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">Card Room</span>
+          </div>
+          <div class="cursor-pointer group">
+            <div class="w-11 h-11 mx-auto bg-[#1b2645] rounded-xl flex items-center justify-center text-amber-400 text-lg group-hover:bg-amber-400 group-hover:text-black transition"><i class="fa-solid fa-border-all"></i></div>
+            <span class="text-[10px] text-slate-300 mt-1 block truncate">More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold mb-3 text-slate-300">Facilities</h2>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-[#131b30] p-2.5 rounded-2xl border border-slate-800">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover rounded-xl mb-2" />
+          <span class="font-medium text-xs text-slate-200 px-1">Rooms</span>
+        </div>
+        <div class="bg-[#131b30] p-2.5 rounded-2xl border border-slate-800">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover rounded-xl mb-2" />
+          <span class="font-medium text-xs text-slate-200 px-1">Restaurants</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <main id="screen-account" class="screen hidden p-4 space-y-4 pb-28">
+    <div class="flex justify-between items-center bg-[#131b30] p-4 rounded-2xl border border-slate-800">
+      <div>
+        <p class="text-xs text-slate-400">Outstanding Balance</p>
+        <p class="text-xl font-bold text-white mt-0.5">₹194.01 <span class="text-xs text-slate-400 font-normal">Dr</span></p>
+      </div>
+      <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Pay Now</button>
+    </div>
+
+    <div class="bg-[#131b30] p-1 rounded-xl flex border border-slate-800/80 text-xs">
+      <button onclick="toggleAccountSubTab('invoices')" id="btn-invoices" class="flex-1 py-2 text-center rounded-lg font-medium bg-blue-600 text-white transition">Invoices</button>
+      <button onclick="toggleAccountSubTab('activities')" id="btn-activities" class="flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition">Activities</button>
+      <button onclick="toggleAccountSubTab('statement')" id="btn-statement" class="flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition">Statement</button>
+    </div>
+
+    <div id="view-invoices" class="space-y-2">
+      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
+        <div><p class="font-mono text-slate-300">RCL2607009862</p><p class="text-[10px] text-slate-500">Jul 2026</p></div>
+        <div class="flex items-center gap-2"><span class="font-semibold">₹0.00</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
+      </div>
+      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
+        <div><p class="font-mono text-slate-300">RCL2606010670</p><p class="text-[10px] text-slate-500">Jun 2026</p></div>
+        <div class="flex items-center gap-2"><span class="font-semibold">₹89.06</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
+      </div>
+      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
+        <div><p class="font-mono text-slate-300">RCL2605008777</p><p class="text-[10px] text-slate-500">May 2026</p></div>
+        <div class="flex items-center gap-2"><span class="font-semibold">₹295.00</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
+      </div>
+      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 flex justify-between items-center text-xs">
+        <div><p class="font-mono text-slate-300">RCL2604015367</p><p class="text-[10px] text-slate-500">Apr 2026</p></div>
+        <div class="flex items-center gap-2"><span class="font-semibold">₹8053.50</span><i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i></div>
+      </div>
+    </div>
+
+    <div id="view-activities" class="hidden space-y-3">
+      <div class="flex justify-between items-center text-xs text-slate-400 px-1">
+        <span>Aug 06, 2026 to Sep 06, 2026</span>
+        <div class="flex gap-2 text-slate-300"><i class="fa-solid fa-file-lines"></i><i class="fa-solid fa-sliders"></i></div>
+      </div>
+      <div class="bg-[#131b30] p-3 rounded-xl border border-slate-800/60 space-y-2 text-xs">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+          <div><p class="text-[10px] text-slate-500">#2 &nbsp; 02 Sep 2026</p><p class="font-medium text-slate-200 mt-0.5">Event Booking Charges: Murli Uts...</p></div>
+          <span class="font-semibold text-slate-100">₹150.00</span>
+        </div>
+        <div class="flex justify-between items-center pt-1">
+          <div><p class="text-[10px] text-slate-500">#1 &nbsp; 15 Aug 2026</p><p class="font-medium text-slate-200 mt-0.5">Event Booking Charges: Indepen...</p></div>
+          <span class="font-semibold text-slate-100">₹50.00</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <main id="screen-movie" class="screen hidden p-4 space-y-4 pb-28">
+    <div class="bg-[#131b30] p-1 rounded-full flex border border-slate-800 text-xs">
+      <button class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">All</button>
+      <button class="flex-1 py-1.5 text-center rounded-full font-medium bg-blue-600 text-white">Movies</button>
+      <button onclick="switchTab('event')" class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">Events</button>
+      <button class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">Announce</button>
+    </div>
+
+    <div class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+      <button class="bg-slate-200 text-black px-3 py-1.5 rounded-full text-xs font-semibold shrink-0">06 Sep Sun</button>
+      <button class="bg-[#131b30] text-slate-300 border border-slate-700 px-3 py-1.5 rounded-full text-xs shrink-0">07 Sep Mon</button>
+      <button class="bg-[#131b30] text-slate-300 border border-slate-700 px-3 py-1.5 rounded-full text-xs shrink-0">08 Sep Tue</button>
+      <button class="bg-[#131b30] text-slate-300 border border-slate-700 px-3 py-1.5 rounded-full text-xs shrink-0">09 Sep Wed</button>
+    </div>
+
+    <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" class="w-full h-44 object-cover" />
+        <button class="absolute bottom-2 right-2 w-8 h-8 bg-black/60 rounded-full flex items-center justify-center text-xs"><i class="fa-solid fa-share-nodes"></i></button>
+      </div>
+      <div class="p-4 space-y-3">
+        <h3 class="font-bold text-base tracking-wide">MIRZAPUR</h3>
+        <div class="flex items-center gap-4 text-xs text-slate-400">
+          <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> 06 Sep</span>
+          <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 02:00 PM - 05:29 PM</span>
+        </div>
+        <div class="flex justify-between items-center pt-2">
+          <div><span class="text-sm font-bold">₹125.00</span> <span class="text-[10px] text-slate-500">(on...</span></div>
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 border border-slate-600 rounded-full flex items-center justify-center text-[10px] text-slate-400 font-bold">A</span>
+            <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <main id="screen-event" class="screen hidden p-4 space-y-4 pb-28">
+    <div class="bg-[#131b30] p-1 rounded-full flex border border-slate-800 text-xs">
+      <button onclick="switchTab('movie')" class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">Movies</button>
+      <button onclick="toggleEventSubTab('events')" id="btn-events-tab" class="flex-1 py-1.5 text-center rounded-full font-medium bg-blue-600 text-white">Events</button>
+      <button onclick="toggleEventSubTab('announcements')" id="btn-announcement-tab" class="flex-1 py-1.5 text-center rounded-full font-medium text-slate-400">Announcement</button>
+    </div>
+
+    <div id="view-events-content" class="py-16 text-center space-y-3">
+      <div class="w-16 h-16 bg-blue-600/20 text-blue-500 rounded-full flex items-center justify-center mx-auto text-2xl">
+        <i class="fa-solid fa-file-circle-xmark"></i>
+      </div>
+      <p class="font-semibold text-slate-300 text-base">No event found!</p>
+    </div>
+
+    <div id="view-announcements-content" class="hidden space-y-4">
+      <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden p-4 space-y-3">
+        <div class="h-28 bg-slate-800 rounded-xl flex items-center justify-center text-slate-600 text-4xl">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3 class="font-bold text-sm tracking-wide">GOLDEN ERA OF BOLLYWOOD</h3>
+        <div class="flex justify-between items-center text-xs text-slate-400 pt-1">
+          <div class="flex items-center gap-3">
+            <span><i class="fa-regular fa-calendar"></i> 13 Aug</span>
+            <span><i class="fa-regular fa-clock"></i> 05:31 PM</span>
+          </div>
+          <button class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-medium">View Post</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-[#0b1329]/95 backdrop-blur-md border-t border-slate-800/80 py-2 px-6 flex justify-between items-center z-30">
+    <button onclick="switchTab('home')" id="nav-home" class="nav-item flex flex-col items-center gap-1 text-amber-400">
+      <div class="w-8 h-8 rounded-full bg-blue-600/30 flex items-center justify-center text-sm"><i class="fa-solid fa-house"></i></div>
+      <span class="text-[10px] font-medium">Home</span>
+    </button>
+    <button onclick="switchTab('account')" id="nav-account" class="nav-item flex flex-col items-center gap-1 text-slate-500">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-user"></i></div>
+      <span class="text-[10px] font-medium">Account</span>
+    </button>
+    <button onclick="switchTab('movie')" id="nav-movie" class="nav-item flex flex-col items-center gap-1 text-slate-500">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-compact-disc"></i></div>
+      <span class="text-[10px] font-medium">Movie</span>
+    </button>
+    <button onclick="switchTab('event')" id="nav-event" class="nav-item flex flex-col items-center gap-1 text-slate-500">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm"><i class="fa-solid fa-calendar-days"></i></div>
+      <span class="text-[10px] font-medium">Event</span>
+    </button>
+  </nav>
+
+  <script>
+    function toggleDrawer(open) {
+      const drawer = document.getElementById('drawer');
+      const overlay = document.getElementById('drawerOverlay');
+      if (open) {
+        drawer.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+      } else {
+        drawer.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      }
+    }
+
+    function switchTab(screenName) {
+      // Hide all screens
+      document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+      
+      // Show targeted screen
+      document.getElementById(`screen-${screenName}`).classList.remove('hidden');
+
+      // Update Navigation styling
+      document.querySelectorAll('.nav-item').forEach(btn => {
+        btn.classList.remove('text-amber-400');
+        btn.classList.add('text-slate-500');
+        btn.querySelector('div').classList.remove('bg-blue-600/30');
+      });
+
+      const activeBtn = document.getElementById(`nav-${screenName}`);
+      activeBtn.classList.remove('text-slate-500');
+      activeBtn.classList.add('text-amber-400');
+      activeBtn.querySelector('div').classList.add('bg-blue-600/30');
+
+      // Update Header Title
+      const titles = { home: 'Home', account: 'Account', movie: 'Explore', event: 'Explore' };
+      document.getElementById('headerTitle').innerText = titles[screenName];
+    }
+
+    function toggleAccountSubTab(tab) {
+      document.getElementById('view-invoices').classList.add('hidden');
+      document.getElementById('view-activities').classList.add('hidden');
+      
+      document.getElementById('btn-invoices').className = "flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition";
+      document.getElementById('btn-activities').className = "flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition";
+      document.getElementById('btn-statement').className = "flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition";
+
+      document.getElementById(`view-${tab}`).classList.remove('hidden');
+      document.getElementById(`btn-${tab}`).className = "flex-1 py-2 text-center rounded-lg font-medium bg-blue-600 text-white transition";
+    }
+
+    function toggleEventSubTab(tab) {
+      if (tab === 'events') {
+        document.getElementById('view-events-content').classList.remove('hidden');
+        document.getElementById('view-announcements-content').classList.add('hidden');
+        document.getElementById('btn-events-tab').className = "flex-1 py-1.5 text-center rounded-full font-medium bg-blue-600 text-white";
+        document.getElementById('btn-announcement-tab').className = "flex-1 py-1.5 text-center rounded-full font-medium text-slate-400";
+      } else {
+        document.getElementById('view-events-content').classList.add('hidden');
+        document.getElementById('view-announcements-content').classList.remove('hidden');
+        document.getElementById('btn-events-tab').className = "flex-1 py-1.5 text-center rounded-full font-medium text-slate-400";
+        document.getElementById('btn-announcement-tab').className = "flex-1 py-1.5 text-center rounded-full font-medium bg-blue-600 text-white";
+      }
+    }
+  </script>
+</body>
+</html>
