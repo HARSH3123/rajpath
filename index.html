@@ -118,8 +118,8 @@
   <main id="screen-home" class="screen space-y-5 p-4 pb-28">
     <!-- Main Movie Banner -->
     <div class="relative rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/50 shadow-lg">
-      <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" alt="Featured Movie" class="w-full h-44 object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-4 justify-between">
+      <img src="https://m.media-amazon.com/images/M/MV5BODlhNzk2ODMtMDRiYS00MjhiLWI1YWMtNWU4NThmZTJjYTRhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Featured Movie" class="w-full h-44 object-cover object-top" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-4 justify-between">
         <div>
           <span class="bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Now Showing</span>
           <h2 class="text-yellow-400 font-black tracking-wider text-xl uppercase mt-1">KALKI 2898 AD</h2>
@@ -160,9 +160,9 @@
       <h2 class="text-sm font-semibold mb-3 text-slate-300">Online Booking</h2>
       <div class="grid grid-cols-2 gap-3">
         <div onclick="switchTab('movie')" class="bg-[#151d33] p-3 rounded-2xl border border-slate-800 cursor-pointer relative h-32 flex flex-col justify-between overflow-hidden group">
-          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=300" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition" />
-          <div class="relative z-10 text-right"><span class="bg-red-500/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">8 SHOWS</span></div>
-          <span class="relative z-10 font-bold text-sm">Movies</span>
+          <img src="https://m.media-amazon.com/images/M/MV5BN2RjZDJhYzUtOTQ5Yy00OWE3LWE0OWUtM2RjNWY4NTlhN2JhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition" />
+          <div class="relative z-10 text-right"><span class="bg-red-500/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">7 SHOWS</span></div>
+          <span class="relative z-10 font-bold text-sm text-amber-400 drop-shadow">Movies</span>
         </div>
         <div onclick="switchTab('event')" class="bg-[#151d33] p-4 rounded-2xl border border-slate-800 cursor-pointer h-32 flex flex-col justify-center items-center text-center hover:bg-slate-800/80 transition">
           <span class="text-xs font-bold uppercase tracking-wider text-slate-400 border border-slate-600 px-2 py-1 rounded mb-1">Mandala Workshop</span>
@@ -282,7 +282,7 @@
     </div>
   </main>
 
-  <!-- SCREEN 3: MOVIE (ENHANCED STREAMLINED CINEMA TAB) -->
+  <!-- SCREEN 3: MOVIE (EXACT POSTER IMAGES) -->
   <main id="screen-movie" class="screen hidden p-4 space-y-4 pb-28">
     <!-- Cinema Search & Category Chips -->
     <div class="space-y-2">
@@ -304,10 +304,10 @@
 
       <!-- Movie 1: Kalki 2898 AD -->
       <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Sci-Fi Action" data-title="Kalki 2898 AD">
-        <div class="relative h-40">
-          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
-          <div class="absolute top-2 left-2 bg-amber-400 text-black text-[9px] font-bold px-2 py-0.5 rounded">3D IMAX</div>
-          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.9</div>
+        <div class="relative h-48 bg-black">
+          <img src="https://m.media-amazon.com/images/M/MV5BODlhNzk2ODMtMDRiYS00MjhiLWI1YWMtNWU4NThmZTJjYTRhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Kalki 2898 AD Poster" class="w-full h-full object-cover object-top" />
+          <div class="absolute top-2 left-2 bg-amber-400 text-black text-[9px] font-bold px-2 py-0.5 rounded shadow">3D IMAX</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 shadow"><i class="fa-solid fa-star"></i> 8.9</div>
         </div>
         <div class="p-3.5 space-y-2">
           <div class="flex justify-between items-start">
@@ -330,15 +330,15 @@
 
       <!-- Movie 2: Mirzapur 3 -->
       <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Action Drama" data-title="Mirzapur 3">
-        <div class="relative h-40">
-          <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
-          <div class="absolute top-2 left-2 bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase">Club Special Cut</div>
-          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.7</div>
+        <div class="relative h-48 bg-black">
+          <img src="https://m.media-amazon.com/images/M/MV5BZTI4YjU5NGUtYzliZS00ZDNkLThlOTAtN2M4NzMzMDhhMDFhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Mirzapur 3 Poster" class="w-full h-full object-cover object-top" />
+          <div class="absolute top-2 left-2 bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase shadow">Club Special Cut</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 shadow"><i class="fa-solid fa-star"></i> 8.7</div>
         </div>
         <div class="p-3.5 space-y-2">
           <div class="flex justify-between items-start">
             <div>
-              <h3 class="font-bold text-sm tracking-wide text-white">Mirzapur: Season 3 Special</h3>
+              <h3 class="font-bold text-sm tracking-wide text-white">Mirzapur: Season 3</h3>
               <p class="text-[10px] text-slate-400">Action / Crime • 2h 20m • Screen 1</p>
             </div>
             <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded-lg">₹125</span>
@@ -355,10 +355,10 @@
 
       <!-- Movie 3: Stree 2 -->
       <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Horror Comedy" data-title="Stree 2">
-        <div class="relative h-40">
-          <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
-          <div class="absolute top-2 left-2 bg-purple-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Horror Comedy</div>
-          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.5</div>
+        <div class="relative h-48 bg-black">
+          <img src="https://m.media-amazon.com/images/M/MV5BN2RjZDJhYzUtOTQ5Yy00OWE3LWE0OWUtM2RjNWY4NTlhN2JhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Stree 2 Poster" class="w-full h-full object-cover object-top" />
+          <div class="absolute top-2 left-2 bg-purple-600 text-white text-[9px] font-bold px-2 py-0.5 rounded shadow">Horror Comedy</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 shadow"><i class="fa-solid fa-star"></i> 8.5</div>
         </div>
         <div class="p-3.5 space-y-2">
           <div class="flex justify-between items-start">
@@ -380,10 +380,10 @@
 
       <!-- Movie 4: Devara Part 1 -->
       <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Action" data-title="Devara Part 1">
-        <div class="relative h-40">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
-          <div class="absolute top-2 left-2 bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Dolby Atmos</div>
-          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.4</div>
+        <div class="relative h-48 bg-black">
+          <img src="https://m.media-amazon.com/images/M/MV5BZTFkY2I1ZDAtN2U3NC00ODcxLTg4NTAtMTA0OWI4YmNmOWJiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Devara Part 1 Poster" class="w-full h-full object-cover object-top" />
+          <div class="absolute top-2 left-2 bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded shadow">Dolby Atmos</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 shadow"><i class="fa-solid fa-star"></i> 8.4</div>
         </div>
         <div class="p-3.5 space-y-2">
           <div class="flex justify-between items-start">
@@ -405,10 +405,10 @@
 
       <!-- Movie 5: Fighter -->
       <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Action Drama" data-title="Fighter">
-        <div class="relative h-40">
-          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
-          <div class="absolute top-2 left-2 bg-emerald-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Aerial Action</div>
-          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.1</div>
+        <div class="relative h-48 bg-black">
+          <img src="https://m.media-amazon.com/images/M/MV5BZWUwMGEyNDYtM2I5MC00ZDFmLTg5NWItZTViNDhhMWI4M2I3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Fighter Poster" class="w-full h-full object-cover object-top" />
+          <div class="absolute top-2 left-2 bg-emerald-600 text-white text-[9px] font-bold px-2 py-0.5 rounded shadow">Aerial Action</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 shadow"><i class="fa-solid fa-star"></i> 8.1</div>
         </div>
         <div class="p-3.5 space-y-2">
           <div class="flex justify-between items-start">
@@ -430,10 +430,10 @@
 
       <!-- Movie 6: Shaitaan -->
       <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Horror" data-title="Shaitaan">
-        <div class="relative h-40">
-          <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
-          <div class="absolute top-2 left-2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded border border-red-600">Supernatural</div>
-          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 7.9</div>
+        <div class="relative h-48 bg-black">
+          <img src="https://m.media-amazon.com/images/M/MV5BMjA0MGEwMDItZDMxMC00MTI3LTlhNTMtOTgwNTI4MGQ1OTFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Shaitaan Poster" class="w-full h-full object-cover object-top" />
+          <div class="absolute top-2 left-2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded border border-red-600 shadow">Supernatural</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 shadow"><i class="fa-solid fa-star"></i> 7.9</div>
         </div>
         <div class="p-3.5 space-y-2">
           <div class="flex justify-between items-start">
@@ -455,10 +455,10 @@
 
       <!-- Movie 7: Dune Part Two -->
       <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Sci-Fi" data-title="Dune Part Two">
-        <div class="relative h-40">
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
-          <div class="absolute top-2 left-2 bg-amber-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Hollywood 4K</div>
-          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 9.1</div>
+        <div class="relative h-48 bg-black">
+          <img src="https://m.media-amazon.com/images/M/MV5BN2QyZGU3NjMtODBmMi00MDRjLWEwNjAtZTNhMTUxOWE1M2JiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Dune Part Two Poster" class="w-full h-full object-cover object-top" />
+          <div class="absolute top-2 left-2 bg-amber-600 text-white text-[9px] font-bold px-2 py-0.5 rounded shadow">Hollywood 4K</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 shadow"><i class="fa-solid fa-star"></i> 9.1</div>
         </div>
         <div class="p-3.5 space-y-2">
           <div class="flex justify-between items-start">
