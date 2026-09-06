@@ -13,15 +13,18 @@
 </head>
 <body class="bg-[#0b1329] text-white font-sans max-w-md mx-auto min-h-screen relative border-x border-slate-800/80 selection:bg-blue-500 selection:text-white">
 
+  <!-- TOP HEADER -->
   <header class="p-4 flex justify-between items-center bg-[#0b1329] sticky top-0 z-30 border-b border-slate-800/40">
     <button onclick="toggleDrawer(true)" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-slate-200 hover:bg-slate-700 transition">
       <i class="fa-solid fa-bars-staggered"></i>
     </button>
     <h1 id="headerTitle" class="text-xl font-bold tracking-wide">Home</h1>
     <div class="flex items-center gap-2">
+      <!-- Digital QR Gate Pass Button -->
       <button onclick="openDigitalPass()" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-amber-400 hover:bg-slate-700 transition" title="Digital Gate Pass">
         <i class="fa-solid fa-qrcode"></i>
       </button>
+      <!-- Notifications Button -->
       <button onclick="toggleNotifications(true)" class="w-10 h-10 bg-[#17223b] rounded-full flex items-center justify-center text-amber-400 relative hover:bg-slate-700 transition">
         <i class="fa-solid fa-bell"></i>
         <span class="absolute top-2 right-2 w-2 h-2 bg-amber-400 rounded-full animate-ping"></span>
@@ -29,6 +32,7 @@
     </div>
   </header>
 
+  <!-- SIDE DRAWER MENU -->
   <div id="drawerOverlay" onclick="toggleDrawer(false)" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity"></div>
   <aside id="drawer" class="fixed top-0 left-0 bottom-0 w-4/5 max-w-xs bg-[#101a33] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-5 overflow-y-auto no-scrollbar flex flex-col justify-between">
     <div>
@@ -48,6 +52,7 @@
       <nav class="space-y-3.5 text-sm font-medium text-slate-300">
         <button onclick="openDigitalPass()" class="w-full text-left flex items-center gap-3 py-1 text-amber-400 font-semibold hover:text-amber-300"><i class="fa-solid fa-id-card w-4"></i> Digital Gate Pass (QR)</button>
 
+        <!-- About Club Accordion -->
         <div class="border-b border-slate-800/80 pb-2">
           <div onclick="toggleSubMenu('aboutSub')" class="flex justify-between items-center py-1 cursor-pointer hover:text-white">
             <span class="flex items-center gap-3"><i class="fa-solid fa-circle-info text-amber-400 w-4"></i> About Club</span>
@@ -69,13 +74,14 @@
         <button onclick="openModal('Guest Entry Charges', '<div class=\'space-y-2 text-sm\'><p><b>Weekdays:</b> ₹100 per guest</p><p><b>Weekends:</b> ₹200 per guest</p></div>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-indian-rupee-sign text-amber-400 w-4"></i> Guest Entry Charges</button>
         <button onclick="openModal('Contact Us', '<p class=\'text-sm\'>Desk: +91 79 2687 0000<br/>Email: support@rajpathclub.com</p>')" class="w-full text-left flex items-center gap-3 py-1 hover:text-white"><i class="fa-solid fa-headset text-amber-400 w-4"></i> Contact Us</button>
 
+        <!-- Booking History Accordion -->
         <div class="border-t border-slate-800/80 pt-2">
           <div onclick="toggleSubMenu('historySub')" class="flex items-center justify-between py-1 cursor-pointer hover:text-white">
             <span class="flex items-center gap-3"><i class="fa-solid fa-clock-rotate-left text-amber-400 w-4"></i> Booking History</span>
             <i id="historySubChevron" class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"></i>
           </div>
           <div id="historySub" class="mt-2 pl-6 space-y-2 text-slate-400 text-xs hidden">
-            <button onclick="openModal('Movie History', '<p class=\'text-sm\'>• Mirzapur - Sept 02 (2 Seats)<br/>• Stree 2 - Aug 20 (3 Seats)</p>')" class="w-full text-left py-1 hover:text-white">• Movies History</button>
+            <button onclick="openModal('Movie History', '<p class=\'text-sm\'>• Kalki 2898 AD - Sept 02 (2 Seats)<br/>• Stree 2 - Aug 20 (3 Seats)</p>')" class="w-full text-left py-1 hover:text-white">• Movies History</button>
             <button onclick="openModal('Sports History', '<p class=\'text-sm\'>• Badminton Court #1 - Sept 05 (6 PM)</p>')" class="w-full text-left py-1 hover:text-white">• Sports Slots</button>
           </div>
         </div>
@@ -89,6 +95,7 @@
     </div>
   </aside>
 
+  <!-- NOTIFICATIONS SLIDE TRAY -->
   <div id="notifOverlay" onclick="toggleNotifications(false)" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></div>
   <aside id="notifTray" class="fixed top-0 right-0 bottom-0 w-4/5 max-w-xs bg-[#101a33] z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-5 overflow-y-auto no-scrollbar space-y-4">
     <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -107,18 +114,21 @@
     </div>
   </aside>
 
+  <!-- SCREEN 1: HOME -->
   <main id="screen-home" class="screen space-y-5 p-4 pb-28">
+    <!-- Main Movie Banner -->
     <div class="relative rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/50 shadow-lg">
-      <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" alt="Mirzapur Banner" class="w-full h-44 object-cover" />
+      <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" alt="Featured Movie" class="w-full h-44 object-cover" />
       <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-4 justify-between">
         <div>
           <span class="bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Now Showing</span>
-          <h2 class="text-yellow-400 font-black tracking-wider text-xl uppercase mt-1">MIRZAPUR 3</h2>
+          <h2 class="text-yellow-400 font-black tracking-wider text-xl uppercase mt-1">KALKI 2898 AD</h2>
         </div>
-        <button onclick="openSeatPicker('MIRZAPUR 3')" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-semibold hover:bg-blue-500">Book ₹125</button>
+        <button onclick="openSeatPicker('KALKI 2898 AD', 150)" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-xl font-semibold hover:bg-blue-500">Book ₹150</button>
       </div>
     </div>
 
+    <!-- Active Upcoming Reservation Widget -->
     <div class="bg-[#131b30] p-3 rounded-2xl border border-slate-800 flex justify-between items-center text-xs">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center text-base"><i class="fa-solid fa-calendar-check"></i></div>
@@ -130,6 +140,7 @@
       <button onclick="alert('Reservation checked in!')" class="bg-slate-800 hover:bg-slate-700 text-amber-400 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-slate-700">Check In</button>
     </div>
 
+    <!-- Top 3 Quick Actions -->
     <div class="grid grid-cols-3 gap-3">
       <button onclick="switchTab('account')" class="bg-[#1d2744] hover:bg-[#253257] p-3 rounded-2xl flex items-center justify-center gap-2 border border-slate-700/40">
         <div class="w-7 h-7 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs"><i class="fa-solid fa-indian-rupee-sign"></i></div>
@@ -144,12 +155,13 @@
       </button>
     </div>
 
+    <!-- Online Booking Cards -->
     <div>
       <h2 class="text-sm font-semibold mb-3 text-slate-300">Online Booking</h2>
       <div class="grid grid-cols-2 gap-3">
         <div onclick="switchTab('movie')" class="bg-[#151d33] p-3 rounded-2xl border border-slate-800 cursor-pointer relative h-32 flex flex-col justify-between overflow-hidden group">
           <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=300" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition" />
-          <div class="relative z-10 text-right"><span class="bg-red-500/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">3 SHOWS</span></div>
+          <div class="relative z-10 text-right"><span class="bg-red-500/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">8 SHOWS</span></div>
           <span class="relative z-10 font-bold text-sm">Movies</span>
         </div>
         <div onclick="switchTab('event')" class="bg-[#151d33] p-4 rounded-2xl border border-slate-800 cursor-pointer h-32 flex flex-col justify-center items-center text-center hover:bg-slate-800/80 transition">
@@ -160,6 +172,7 @@
       </div>
     </div>
 
+    <!-- Booking of Sports Facilities Grid -->
     <div>
       <h2 class="text-sm font-semibold mb-3 text-slate-300">Booking of Sports Facilities</h2>
       <div class="bg-[#131b30] p-4 rounded-2xl border border-slate-800">
@@ -200,6 +213,7 @@
       </div>
     </div>
 
+    <!-- Facilities Images Section -->
     <div>
       <div class="flex justify-between items-center mb-3">
         <h2 class="text-sm font-semibold text-slate-300">Facilities & Dining</h2>
@@ -218,6 +232,7 @@
     </div>
   </main>
 
+  <!-- SCREEN 2: ACCOUNT -->
   <main id="screen-account" class="screen hidden p-4 space-y-4 pb-28">
     <div class="bg-[#131b30] p-4 rounded-2xl border border-slate-800 space-y-3">
       <div class="flex justify-between items-center">
@@ -233,6 +248,7 @@
       </div>
     </div>
 
+    <!-- Account Sub Tabs -->
     <div class="bg-[#131b30] p-1 rounded-xl flex border border-slate-800/80 text-xs">
       <button onclick="toggleAccountSubTab('invoices')" id="btn-invoices" class="flex-1 py-2 text-center rounded-lg font-medium bg-blue-600 text-white transition">Invoices</button>
       <button onclick="toggleAccountSubTab('activities')" id="btn-activities" class="flex-1 py-2 text-center rounded-lg font-medium text-slate-400 transition">Activities</button>
@@ -266,19 +282,206 @@
     </div>
   </main>
 
+  <!-- SCREEN 3: MOVIE (ENHANCED STREAMLINED CINEMA TAB) -->
   <main id="screen-movie" class="screen hidden p-4 space-y-4 pb-28">
-    <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden p-4 space-y-3">
-      <h3 class="font-bold text-base tracking-wide">MIRZAPUR: THE CLUB CUT</h3>
-      <p class="text-xs text-slate-400">Timings: 02:00 PM • 06:30 PM | Screen 1</p>
-      <button onclick="openSeatPicker('MIRZAPUR 3')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl w-full">Interactive Seat Booking (₹125)</button>
+    <!-- Cinema Search & Category Chips -->
+    <div class="space-y-2">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
+        <input type="text" id="movieSearch" onkeyup="filterMovies()" placeholder="Search movies, genre, auditorium..." class="w-full bg-[#131b30] text-xs text-white pl-9 pr-4 py-2.5 rounded-xl border border-slate-800 focus:outline-none focus:border-amber-400" />
+      </div>
+      <div class="flex gap-2 overflow-x-auto no-scrollbar py-1 text-[11px] font-semibold">
+        <button onclick="filterGenre('all')" class="genre-btn px-3 py-1 rounded-full bg-amber-400 text-black whitespace-nowrap">All Movies</button>
+        <button onclick="filterGenre('Action')" class="genre-btn px-3 py-1 rounded-full bg-[#131b30] border border-slate-800 text-slate-300 whitespace-nowrap">Action</button>
+        <button onclick="filterGenre('Sci-Fi')" class="genre-btn px-3 py-1 rounded-full bg-[#131b30] border border-slate-800 text-slate-300 whitespace-nowrap">Sci-Fi</button>
+        <button onclick="filterGenre('Horror')" class="genre-btn px-3 py-1 rounded-full bg-[#131b30] border border-slate-800 text-slate-300 whitespace-nowrap">Horror</button>
+        <button onclick="filterGenre('Drama')" class="genre-btn px-3 py-1 rounded-full bg-[#131b30] border border-slate-800 text-slate-300 whitespace-nowrap">Drama</button>
+      </div>
     </div>
-    <div class="bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden p-4 space-y-3">
-      <h3 class="font-bold text-base tracking-wide">STREE 2</h3>
-      <p class="text-xs text-slate-400">Timings: 08:00 PM | Main Auditorium</p>
-      <button onclick="openSeatPicker('STREE 2')" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl w-full">Interactive Seat Booking (₹150)</button>
+
+    <!-- Movie Listings Container -->
+    <div id="movieListContainer" class="space-y-4">
+
+      <!-- Movie 1: Kalki 2898 AD -->
+      <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Sci-Fi Action" data-title="Kalki 2898 AD">
+        <div class="relative h-40">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
+          <div class="absolute top-2 left-2 bg-amber-400 text-black text-[9px] font-bold px-2 py-0.5 rounded">3D IMAX</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.9</div>
+        </div>
+        <div class="p-3.5 space-y-2">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-sm tracking-wide text-white">Kalki 2898 AD</h3>
+              <p class="text-[10px] text-slate-400">Sci-Fi / Action • 3h 00m • Main Auditorium</p>
+            </div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded-lg">₹150</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-300 flex-wrap">
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">01:30 PM</span>
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">05:30 PM</span>
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">09:00 PM</span>
+          </div>
+          <button onclick="openSeatPicker('Kalki 2898 AD', 150)" class="w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 rounded-xl transition flex items-center justify-center gap-2 mt-1">
+            <i class="fa-solid fa-ticket"></i> Select Seats & Book
+          </button>
+        </div>
+      </div>
+
+      <!-- Movie 2: Mirzapur 3 -->
+      <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Action Drama" data-title="Mirzapur 3">
+        <div class="relative h-40">
+          <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
+          <div class="absolute top-2 left-2 bg-red-600 text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase">Club Special Cut</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.7</div>
+        </div>
+        <div class="p-3.5 space-y-2">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-sm tracking-wide text-white">Mirzapur: Season 3 Special</h3>
+              <p class="text-[10px] text-slate-400">Action / Crime • 2h 20m • Screen 1</p>
+            </div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded-lg">₹125</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-300 flex-wrap">
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">02:00 PM</span>
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">06:30 PM</span>
+          </div>
+          <button onclick="openSeatPicker('Mirzapur 3', 125)" class="w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 rounded-xl transition flex items-center justify-center gap-2 mt-1">
+            <i class="fa-solid fa-ticket"></i> Select Seats & Book
+          </button>
+        </div>
+      </div>
+
+      <!-- Movie 3: Stree 2 -->
+      <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Horror Comedy" data-title="Stree 2">
+        <div class="relative h-40">
+          <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
+          <div class="absolute top-2 left-2 bg-purple-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Horror Comedy</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.5</div>
+        </div>
+        <div class="p-3.5 space-y-2">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-sm tracking-wide text-white">Stree 2</h3>
+              <p class="text-[10px] text-slate-400">Horror / Comedy • 2h 15m • Screen 2</p>
+            </div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded-lg">₹140</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-300 flex-wrap">
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">04:15 PM</span>
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">08:00 PM</span>
+          </div>
+          <button onclick="openSeatPicker('Stree 2', 140)" class="w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 rounded-xl transition flex items-center justify-center gap-2 mt-1">
+            <i class="fa-solid fa-ticket"></i> Select Seats & Book
+          </button>
+        </div>
+      </div>
+
+      <!-- Movie 4: Devara Part 1 -->
+      <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Action" data-title="Devara Part 1">
+        <div class="relative h-40">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
+          <div class="absolute top-2 left-2 bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Dolby Atmos</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.4</div>
+        </div>
+        <div class="p-3.5 space-y-2">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-sm tracking-wide text-white">Devara - Part 1</h3>
+              <p class="text-[10px] text-slate-400">Action / Thriller • 2h 45m • Main Auditorium</p>
+            </div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded-lg">₹150</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-300 flex-wrap">
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">03:00 PM</span>
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">09:30 PM</span>
+          </div>
+          <button onclick="openSeatPicker('Devara Part 1', 150)" class="w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 rounded-xl transition flex items-center justify-center gap-2 mt-1">
+            <i class="fa-solid fa-ticket"></i> Select Seats & Book
+          </button>
+        </div>
+      </div>
+
+      <!-- Movie 5: Fighter -->
+      <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Action Drama" data-title="Fighter">
+        <div class="relative h-40">
+          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
+          <div class="absolute top-2 left-2 bg-emerald-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Aerial Action</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 8.1</div>
+        </div>
+        <div class="p-3.5 space-y-2">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-sm tracking-wide text-white">Fighter</h3>
+              <p class="text-[10px] text-slate-400">Action / Patriotic • 2h 40m • Screen 1</p>
+            </div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded-lg">₹130</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-300 flex-wrap">
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">11:00 AM</span>
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">07:00 PM</span>
+          </div>
+          <button onclick="openSeatPicker('Fighter', 130)" class="w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 rounded-xl transition flex items-center justify-center gap-2 mt-1">
+            <i class="fa-solid fa-ticket"></i> Select Seats & Book
+          </button>
+        </div>
+      </div>
+
+      <!-- Movie 6: Shaitaan -->
+      <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Horror" data-title="Shaitaan">
+        <div class="relative h-40">
+          <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
+          <div class="absolute top-2 left-2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded border border-red-600">Supernatural</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 7.9</div>
+        </div>
+        <div class="p-3.5 space-y-2">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-sm tracking-wide text-white">Shaitaan</h3>
+              <p class="text-[10px] text-slate-400">Supernatural Thriller • 2h 12m • Screen 2</p>
+            </div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded-lg">₹120</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-300 flex-wrap">
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">06:00 PM</span>
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">10:15 PM</span>
+          </div>
+          <button onclick="openSeatPicker('Shaitaan', 120)" class="w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 rounded-xl transition flex items-center justify-center gap-2 mt-1">
+            <i class="fa-solid fa-ticket"></i> Select Seats & Book
+          </button>
+        </div>
+      </div>
+
+      <!-- Movie 7: Dune Part Two -->
+      <div class="movie-card bg-[#131b30] rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col" data-genre="Sci-Fi" data-title="Dune Part Two">
+        <div class="relative h-40">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" />
+          <div class="absolute top-2 left-2 bg-amber-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Hollywood 4K</div>
+          <div class="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1"><i class="fa-solid fa-star"></i> 9.1</div>
+        </div>
+        <div class="p-3.5 space-y-2">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-bold text-sm tracking-wide text-white">Dune: Part Two</h3>
+              <p class="text-[10px] text-slate-400">Sci-Fi / Adventure • 2h 46m • Main Auditorium</p>
+            </div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-1 rounded-lg">₹160</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-slate-300 flex-wrap">
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">01:00 PM</span>
+            <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">08:15 PM</span>
+          </div>
+          <button onclick="openSeatPicker('Dune Part Two', 160)" class="w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold py-2 rounded-xl transition flex items-center justify-center gap-2 mt-1">
+            <i class="fa-solid fa-ticket"></i> Select Seats & Book
+          </button>
+        </div>
+      </div>
+
     </div>
   </main>
 
+  <!-- SCREEN 4: EVENT -->
   <main id="screen-event" class="screen hidden p-4 space-y-4 pb-28">
     <div class="bg-[#131b30] rounded-2xl border border-slate-800 p-4 space-y-2">
       <h3 class="font-bold text-sm text-amber-400">MURLI UTSAV & DANDIYA 2026</h3>
@@ -287,6 +490,7 @@
     </div>
   </main>
 
+  <!-- BOTTOM NAVIGATION BAR -->
   <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-[#0b1329]/95 backdrop-blur-md border-t border-slate-800/80 py-2 px-6 flex justify-between items-center z-30">
     <button onclick="switchTab('home')" id="nav-home" class="nav-item flex flex-col items-center gap-1 text-amber-400">
       <div class="w-8 h-8 rounded-full bg-blue-600/30 flex items-center justify-center text-sm"><i class="fa-solid fa-house"></i></div>
@@ -306,6 +510,7 @@
     </button>
   </nav>
 
+  <!-- DYNAMIC MODAL BOX -->
   <div id="infoModal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="bg-[#131b30] border border-slate-700/80 rounded-2xl w-full max-w-sm p-5 space-y-4 shadow-2xl relative">
       <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -317,10 +522,12 @@
     </div>
   </div>
 
+  <!-- JAVASCRIPT CONTROLLERS -->
   <script>
     let walletBalance = 1250;
     let currentDues = 194.01;
     let selectedSeats = [];
+    let currentMoviePrice = 125;
 
     function toggleDrawer(open) {
       document.getElementById('drawer').classList.toggle('-translate-x-full', !open);
@@ -380,6 +587,39 @@
       document.getElementById(`btn-${tab}`).className = "flex-1 py-2 text-center rounded-lg font-medium bg-blue-600 text-white transition";
     }
 
+    // Filter Movies by Search Input
+    function filterMovies() {
+      const q = document.getElementById('movieSearch').value.toLowerCase();
+      const cards = document.querySelectorAll('.movie-card');
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        const genre = card.getAttribute('data-genre').toLowerCase();
+        if (title.includes(q) || genre.includes(q)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Filter Movies by Genre Chip
+    function filterGenre(genre) {
+      const buttons = document.querySelectorAll('.genre-btn');
+      buttons.forEach(btn => {
+        btn.className = "genre-btn px-3 py-1 rounded-full bg-[#131b30] border border-slate-800 text-slate-300 whitespace-nowrap";
+      });
+      event.target.className = "genre-btn px-3 py-1 rounded-full bg-amber-400 text-black whitespace-nowrap";
+
+      const cards = document.querySelectorAll('.movie-card');
+      cards.forEach(card => {
+        if (genre === 'all' || card.getAttribute('data-genre').includes(genre)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
     // Digital Member Gate Pass
     function openDigitalPass() {
       openModal('Digital Member Pass', `
@@ -395,14 +635,15 @@
     }
 
     // Interactive Movie Seat Picker
-    function openSeatPicker(movieTitle) {
+    function openSeatPicker(movieTitle, price = 125) {
       selectedSeats = [];
+      currentMoviePrice = price;
       let seatGrid = `<div class="text-center space-y-3"><p class="text-xs text-slate-300">Screen Layout (${movieTitle})</p><div class="w-full bg-blue-500/20 py-1 rounded text-[10px] text-blue-300 font-bold mb-3">STAGE / SCREEN</div><div class="grid grid-cols-5 gap-2 max-w-xs mx-auto">`;
       
       for (let i = 1; i <= 15; i++) {
         seatGrid += `<button id="seat-${i}" onclick="toggleSeat(${i})" class="bg-slate-700 text-xs py-2 rounded font-semibold hover:bg-amber-400 hover:text-black transition">${i}</button>`;
       }
-      seatGrid += `</div><div class="text-xs text-slate-400 flex justify-between pt-2"><span>Total Price: <b id="seatTotalPrice" class="text-white">₹0</b></span><button onclick="confirmSeats('${movieTitle}')" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg">Confirm Booking</button></div></div>`;
+      seatGrid += `</div><div class="text-xs text-slate-400 flex justify-between items-center pt-2"><span>Total: <b id="seatTotalPrice" class="text-white">₹0</b></span><button onclick="confirmSeats('${movieTitle}')" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg">Confirm Booking</button></div></div>`;
       
       openModal('Select Seats', seatGrid);
     }
@@ -418,12 +659,12 @@
         btn.classList.remove('bg-slate-700', 'text-white');
         btn.classList.add('bg-amber-400', 'text-black');
       }
-      document.getElementById('seatTotalPrice').innerText = `₹${selectedSeats.length * 125}`;
+      document.getElementById('seatTotalPrice').innerText = `₹${selectedSeats.length * currentMoviePrice}`;
     }
 
     function confirmSeats(movieTitle) {
       if (selectedSeats.length === 0) return alert('Select at least one seat!');
-      const cost = selectedSeats.length * 125;
+      const cost = selectedSeats.length * currentMoviePrice;
       if (walletBalance >= cost) {
         walletBalance -= cost;
         document.getElementById('walletBal').innerText = `₹${walletBalance.toFixed(2)}`;
